@@ -38,7 +38,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         mActivity = getActivity();
         mContext = getActivity();
         createPresenter();
-        mPresenter.attachView(this);
+       // mPresenter.attachView(this);
     }
 
     protected abstract void createPresenter();
@@ -48,8 +48,8 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (mPresenter != null){
-            mPresenter.detachView();
-        }
+//        if (mPresenter != null){
+//            mPresenter.detachView();
+//        }
     }
 }
