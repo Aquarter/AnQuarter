@@ -74,7 +74,7 @@ public class VideoFragment extends BaseFragment{
     private void setData() {
         mFgmList.add(new VideoPopularFragment());
         mFgmList.add(new VideoNearbyFragment());
-        tableAdapter = new TableAdapter(getActivity().getSupportFragmentManager());
+        tableAdapter = new TableAdapter(getChildFragmentManager());
         tableAdapter.getmText(TableText);
         tableAdapter.getmFamList(mFgmList);
         videoViewPager.setAdapter(tableAdapter);
