@@ -1,4 +1,4 @@
-package com.a.quarter.view.iview;
+package com.a.quarter.view.iview.video;
 
 import com.a.quarter.base.BaseView;
 
