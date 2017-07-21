@@ -6,7 +6,7 @@ import com.a.quarter.presenter.JokeFragmentPresenter;
 
 /**
  * desc：
- * Created by xyn on 2017/7/20.
+ * Created by wd on 2017/7/20.
  * thinking：
  */
 

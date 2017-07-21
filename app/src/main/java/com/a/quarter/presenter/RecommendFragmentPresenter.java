@@ -5,7 +5,7 @@ import com.a.quarter.view.iview.IRecommendView;
 
 /**
  * desc：
- * Created by xyn on 2017/7/21.
+ * Created by wd on 2017/7/21.
  * thinking：
  */
 

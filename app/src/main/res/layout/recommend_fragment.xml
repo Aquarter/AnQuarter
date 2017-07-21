@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="推荐"
+        android:text="推荐啊"
         android:textColor="@color/colorAccent"
         android:textSize="24sp"/>
+
 </LinearLayout>

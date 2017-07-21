@@ -1,6 +1,9 @@
 package com.a.quarter.view.activity;
 
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,11 +20,11 @@ import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 
 /**
  * desc：
- * Created by xyn on 2017/7/20.
+ * Created by wd on 2017/7/20.
  * thinking：
  */
 
-public class MainActivity extends BaseActivity<MainPresenter>  implements BottomNavigationBar.OnTabSelectedListener,IMainView {
+public class MainActivity extends BaseActivity<MainPresenter>  implements BottomNavigationBar.OnTabSelectedListener,IMainView,View.OnClickListener{
 
     private BottomNavigationBar bottom_bar;
     private RecommendFragment recommendFragment;
@@ -30,6 +33,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     private TextView tvMainTitle;
     private ImageView imgMainAvatar;
     private ImageView imgMainPublished;
+    private DrawerLayout drawerLayout;
 
     @Override
     public void onsuccess(Object o) {
@@ -57,11 +61,43 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         tvMainTitle = (TextView) findViewById(R.id.main_title);
         imgMainAvatar = (ImageView) findViewById(R.id.main_avatar);
         imgMainPublished = (ImageView) findViewById(R.id.main_published);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        tvMainTitle.setOnClickListener(this);
+        imgMainAvatar.setOnClickListener(this);
+        imgMainPublished.setOnClickListener(this);
+
     }
 
     @Override
     protected void initDatas() {
 
+        setBottomBar();
+
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            //用户头像
+            case R.id.main_avatar:
+               drawerLayout.openDrawer(Gravity.START);
+
+
+                break;
+            //发表
+            case R.id.main_published:
+
+                break;
+
+        }
+
+    }
+
+    //设置bar相关
+    private void setBottomBar() {
         BadgeItem badgeItem = new BadgeItem();
         badgeItem.setHideOnSelect(false)
                 .setText("10")
@@ -71,9 +107,9 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         setDefaultFragment();
         bottom_bar.setMode(BottomNavigationBar.MODE_FIXED);
 //        bottom_bar.setMode(BottomNavigationBar.MODE_SHIFTING);
-        bottom_bar.setBackgroundStyle(BottomNavigationBar.MODE_SHIFTING);
+        //   bottom_bar.setBackgroundStyle(BottomNavigationBar.MODE_SHIFTING);
 //        bottom_bar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_RIPPLE);
-//        bottom_bar.setBarBackgroundColor(R.color.blue);//set background color for navigation bar
+        bottom_bar.setBarBackgroundColor(R.color.blue);//set background color for navigation bar
 //        bottom_bar.setInActiveColor(R.color.white);//unSelected icon color
         bottom_bar.addItem(new BottomNavigationItem(R.drawable.icon_one, R.string.tab_one).setActiveColorResource(R.color.green).setBadgeItem(badgeItem))
                 .addItem(new BottomNavigationItem(R.drawable.icon_two, R.string.tab_two).setActiveColorResource(R.color.orange))
@@ -83,10 +119,9 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
 
         bottom_bar.setTabSelectedListener(this);
 
-
     }
 
-
+    //设置默认fragment
     private void setDefaultFragment() {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         recommendFragment = new RecommendFragment();
@@ -141,4 +176,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     public void onTabReselected(int position) {
 
     }
+
+
+
 }

@@ -4,7 +4,7 @@ import com.a.quarter.base.BaseView;
 
 /**
  * desc：
- * Created by xyn on 2017/7/20.
+ * Created by wd on 2017/7/20.
  * thinking：
  */
 
