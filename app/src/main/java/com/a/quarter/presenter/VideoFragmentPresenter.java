@@ -1,7 +1,7 @@
 package com.a.quarter.presenter;
 
 import com.a.quarter.base.BasePresenter;
-import com.a.quarter.view.iview.IVideoView;
+import com.a.quarter.view.iview.video.IVideoView;
 
 /**
  * desc：

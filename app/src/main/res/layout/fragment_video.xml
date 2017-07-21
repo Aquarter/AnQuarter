@@ -2,10 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <android.support.design.widget.TabLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </android.support.design.widget.TabLayout>
+    <include
+        android:id="@+id/fragment_video_include"
+        layout="@layout/inculde_redio_title"
+        />
 
 </LinearLayout>

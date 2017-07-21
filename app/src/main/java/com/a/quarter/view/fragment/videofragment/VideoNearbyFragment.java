@@ -2,20 +2,20 @@ package com.a.quarter.view.fragment.videofragment;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
-import com.a.quarter.presenter.video.VideoPopularPresenter;
+import com.a.quarter.presenter.video.VideoNearbyPresenter;
 
 /**
  * @类作用:
  * @author: 王鹏智
- * @Date: 2017/7/21  17:25
+ * @Date: 2017/7/21  19:07
  * <p>
  * 思路：
  */
 
 
-public class VideoPopularFragment extends BaseFragment{
+public class VideoNearbyFragment extends BaseFragment {
 
-    private VideoPopularPresenter videoPopularPresenter;
+    private VideoNearbyPresenter videoNearbyPresenter;
 
     @Override
     public void onsuccess(Object o) {
@@ -29,12 +29,12 @@ public class VideoPopularFragment extends BaseFragment{
 
     @Override
     protected void createPresenter() {
-        videoPopularPresenter = new VideoPopularPresenter();
+        videoNearbyPresenter = new VideoNearbyPresenter();
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_video_popular;
+        return R.layout.fragment_video_nearby;
     }
 
     @Override
