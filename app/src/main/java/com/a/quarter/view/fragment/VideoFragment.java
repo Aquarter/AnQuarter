@@ -2,6 +2,7 @@ package com.a.quarter.view.fragment;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
+import com.a.quarter.presenter.VideoFragmentPresenter;
 
 /**
  * desc：
@@ -27,7 +28,7 @@ public class VideoFragment extends BaseFragment{
 
     @Override
     protected void createPresenter() {
-
+        mPresenter=new VideoFragmentPresenter();
     }
 
     @Override

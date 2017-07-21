@@ -2,6 +2,7 @@ package com.a.quarter.view.fragment;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
+import com.a.quarter.presenter.RecommendFragmentPresenter;
 
 /**
  * desc：
@@ -22,7 +23,7 @@ public class RecommendFragment extends BaseFragment {
 
     @Override
     protected void createPresenter() {
-
+        mPresenter=new RecommendFragmentPresenter();
     }
 
     @Override

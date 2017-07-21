@@ -2,6 +2,7 @@ package com.a.quarter.view.fragment;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
+import com.a.quarter.presenter.JokeFragmentPresenter;
 
 /**
  * desc：
@@ -25,7 +26,7 @@ public class JokeFragment extends BaseFragment {
 
     @Override
     protected void createPresenter() {
-
+        mPresenter = new JokeFragmentPresenter();
     }
 
     @Override
