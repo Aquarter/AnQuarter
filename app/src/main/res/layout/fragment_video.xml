@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="16px"
+    android:paddingRight="16px">
     <include
         android:id="@+id/fragment_video_include"
         layout="@layout/inculde_redio_title"

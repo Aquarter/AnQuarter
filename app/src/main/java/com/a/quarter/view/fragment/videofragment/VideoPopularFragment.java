@@ -1,5 +1,7 @@
 package com.a.quarter.view.fragment.videofragment;
 
+import android.view.View;
+
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
 import com.a.quarter.presenter.video.VideoPopularPresenter;
@@ -15,8 +17,6 @@ import com.a.quarter.presenter.video.VideoPopularPresenter;
 
 public class VideoPopularFragment extends BaseFragment{
 
-    private VideoPopularPresenter videoPopularPresenter;
-
     @Override
     public void onsuccess(Object o) {
 
@@ -29,7 +29,7 @@ public class VideoPopularFragment extends BaseFragment{
 
     @Override
     protected void createPresenter() {
-        videoPopularPresenter = new VideoPopularPresenter();
+        mPresenter = new VideoPopularPresenter();
     }
 
     @Override
@@ -41,4 +41,6 @@ public class VideoPopularFragment extends BaseFragment{
     protected void initView() {
 
     }
+
+
 }

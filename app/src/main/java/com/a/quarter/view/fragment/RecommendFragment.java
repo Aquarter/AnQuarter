@@ -1,5 +1,7 @@
 package com.a.quarter.view.fragment;
 
+import android.view.View;
+
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
 import com.a.quarter.presenter.RecommendFragmentPresenter;
@@ -35,4 +37,6 @@ public class RecommendFragment extends BaseFragment {
     protected void initView() {
 
     }
+
+
 }
