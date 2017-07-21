@@ -1,11 +1,15 @@
 package com.a.quarter.view.activity;
 
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
-import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseActivity;
@@ -17,6 +21,7 @@ import com.a.quarter.view.iview.IMainView;
 import com.ashokvarma.bottomnavigation.BadgeItem;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 /**
  * desc：
@@ -31,9 +36,11 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     private JokeFragment jokeFragment;
     private VideoFragment videoFragment;
     private TextView tvMainTitle;
-    private ImageView imgMainAvatar;
+    
     private ImageView imgMainPublished;
     private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private SimpleDraweeView user_icon;
 
     @Override
     public void onsuccess(Object o) {
@@ -52,6 +59,8 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
 
     @Override
     protected int getLayoutId() {
+//        PipelineDraweeControllerBuilderSupplier supplier = new PipelineDraweeControllerBuilderSupplier(this);
+//        SimpleDraweeView.initialize(supplier);
         return R.layout.activity_main;
     }
 
@@ -59,20 +68,61 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     protected void initView() {
         bottom_bar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
         tvMainTitle = (TextView) findViewById(R.id.main_title);
-        imgMainAvatar = (ImageView) findViewById(R.id.main_avatar);
+         
         imgMainPublished = (ImageView) findViewById(R.id.main_published);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        user_icon = (SimpleDraweeView) findViewById(R.id.main_userIcon);
+        user_icon.setOnClickListener(this);
         tvMainTitle.setOnClickListener(this);
-        imgMainAvatar.setOnClickListener(this);
         imgMainPublished.setOnClickListener(this);
 
     }
 
     @Override
     protected void initDatas() {
-
         setBottomBar();
+        //设置用户头像
+        Uri uri = Uri.parse("http://img2-ak.lst.fm/i/u/avatar300s/db40b6dd8f8a76d761785ff4d5f7281e.jpg");
+        user_icon.setImageURI(uri);
 
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+                    //我的关注
+                    case R.id.menu_favorite:
+                        Toast.makeText(MainActivity.this,"我的关注",Toast.LENGTH_SHORT).show();
+                        break;
+                    //我的收藏
+                    case R.id.menu_wallet:
+                        Toast.makeText(MainActivity.this,"我的收藏",Toast.LENGTH_SHORT).show();
+                        break;
+                    //搜索好友
+                    case R.id.menu_firends:
+                        Toast.makeText(MainActivity.this,"搜索好友",Toast.LENGTH_SHORT).show();
+                        break;
+                    //消息通知
+                    case R.id.menu_message:
+                        Toast.makeText(MainActivity.this,"消息通知",Toast.LENGTH_SHORT).show();
+                        break;
+                    //我的作品
+                    case R.id.menu_myvideo:
+                        Toast.makeText(MainActivity.this,"我的作品",Toast.LENGTH_SHORT).show();
+                        break;
+                    //设置
+                    case R.id.menu_settings:
+                        Toast.makeText(MainActivity.this,"设置",Toast.LENGTH_SHORT).show();
+                        break;
+
+
+
+                }
+
+                return true;
+            }
+        });
 
 
     }
@@ -82,9 +132,8 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
 
         switch (v.getId()){
             //用户头像
-            case R.id.main_avatar:
-               drawerLayout.openDrawer(Gravity.START);
-
+            case R.id.main_userIcon:
+                
 
                 break;
             //发表
@@ -92,12 +141,17 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
 
                 break;
 
+
+
         }
 
     }
 
     //设置bar相关
     private void setBottomBar() {
+
+        navigationView.setItemIconTintList(null);
+
         BadgeItem badgeItem = new BadgeItem();
         badgeItem.setHideOnSelect(false)
                 .setText("10")
