@@ -48,5 +48,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC0'
     //导航栏
     compile 'com.ashokvarma.android:bottom-navigation-bar:1.3.1'
-
+    //tablayout
+    compile 'com.android.support:design:25.3.1'
 }

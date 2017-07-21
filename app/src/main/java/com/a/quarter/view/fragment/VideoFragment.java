@@ -13,9 +13,6 @@ import com.a.quarter.presenter.VideoFragmentPresenter;
 public class VideoFragment extends BaseFragment{
 
 
-
-
-
     @Override
     public void onsuccess(Object o) {
 
@@ -34,5 +31,10 @@ public class VideoFragment extends BaseFragment{
     @Override
     protected int getLayoutId() {
         return R.layout.video_fragment;
+    }
+
+    @Override
+    protected void initView() {
+
     }
 }

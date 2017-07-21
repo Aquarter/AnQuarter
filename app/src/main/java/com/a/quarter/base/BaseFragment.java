@@ -43,7 +43,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
 
     protected abstract void createPresenter();
     protected abstract int getLayoutId();
-
+    protected abstract void initView();
 
     @Override
     public void onDestroy() {

@@ -33,4 +33,9 @@ public class JokeFragment extends BaseFragment {
     protected int getLayoutId() {
         return R.layout.joke_fragment;
     }
+
+    @Override
+    protected void initView() {
+
+    }
 }

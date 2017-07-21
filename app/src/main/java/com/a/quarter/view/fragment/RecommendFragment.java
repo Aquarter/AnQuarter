@@ -30,4 +30,9 @@ public class RecommendFragment extends BaseFragment {
     protected int getLayoutId() {
         return R.layout.recommend_fragment;
     }
+
+    @Override
+    protected void initView() {
+
+    }
 }
