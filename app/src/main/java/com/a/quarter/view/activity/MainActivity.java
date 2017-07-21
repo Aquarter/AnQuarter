@@ -1,6 +1,8 @@
 package com.a.quarter.view.activity;
 
 import android.support.v4.app.FragmentTransaction;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseActivity;
@@ -25,6 +27,9 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     private RecommendFragment recommendFragment;
     private JokeFragment jokeFragment;
     private VideoFragment videoFragment;
+    private TextView tvMainTitle;
+    private ImageView imgMainAvatar;
+    private ImageView imgMainPublished;
 
     @Override
     public void onsuccess(Object o) {
@@ -49,6 +54,9 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     @Override
     protected void initView() {
         bottom_bar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
+        tvMainTitle = (TextView) findViewById(R.id.main_title);
+        imgMainAvatar = (ImageView) findViewById(R.id.main_avatar);
+        imgMainPublished = (ImageView) findViewById(R.id.main_published);
     }
 
     @Override
@@ -94,18 +102,21 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (position) {
             case 0:
+                tvMainTitle.setText("推荐");
                 if (recommendFragment == null) {
                     recommendFragment = new RecommendFragment();
                 }
                 transaction.replace(R.id.flayout, recommendFragment);
                 break;
             case 1:
+                tvMainTitle.setText("段子");
                 if (jokeFragment == null) {
                     jokeFragment = new JokeFragment();
                 }
                 transaction.replace(R.id.flayout, jokeFragment);
                 break;
             case 2:
+                tvMainTitle.setText("视频");
                 if (videoFragment == null) {
                     videoFragment = new VideoFragment();
                 }
