@@ -28,7 +28,7 @@ public class RecommendFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.recommend_fragment;
+        return R.layout.fragment_recommend;
     }
 
     @Override
