@@ -1,5 +1,7 @@
 package com.a.quarter.view.fragment.videofragment;
 
+import android.view.View;
+
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
 import com.a.quarter.presenter.video.VideoNearbyPresenter;
@@ -15,8 +17,6 @@ import com.a.quarter.presenter.video.VideoNearbyPresenter;
 
 public class VideoNearbyFragment extends BaseFragment {
 
-    private VideoNearbyPresenter videoNearbyPresenter;
-
     @Override
     public void onsuccess(Object o) {
 
@@ -29,7 +29,7 @@ public class VideoNearbyFragment extends BaseFragment {
 
     @Override
     protected void createPresenter() {
-        videoNearbyPresenter = new VideoNearbyPresenter();
+        mPresenter = new VideoNearbyPresenter();
     }
 
     @Override
@@ -41,4 +41,6 @@ public class VideoNearbyFragment extends BaseFragment {
     protected void initView() {
 
     }
+
+
 }

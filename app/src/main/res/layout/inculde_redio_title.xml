@@ -2,11 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <android.support.design.widget.TabLayout
-        android:id="@+id/inculde_tablayout"
+        android:id="@+id/inculde_tableyout"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        app:tabSelectedTextColor="@color/blue"
+        app:tabTextColor="#000000"
+        app:tabIndicatorColor="@color/blue"
+        app:tabGravity="center"
+        app:tabMode="scrollable">
     </android.support.design.widget.TabLayout>
     <android.support.v4.view.ViewPager
         android:id="@+id/inculde_viewpager"
