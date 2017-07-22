@@ -41,6 +41,8 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private SimpleDraweeView user_icon;
+    private View headerView;
+    private SimpleDraweeView headerUserIcon;
 
     @Override
     public void onsuccess(Object o) {
@@ -77,6 +79,9 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         tvMainTitle.setOnClickListener(this);
         imgMainPublished.setOnClickListener(this);
 
+        //获取头布局文件以及里边的控件
+        headerView = navigationView.getHeaderView(0);
+        headerUserIcon = (SimpleDraweeView) headerView.findViewById(R.id.header_userIcon);
     }
 
     @Override
@@ -85,6 +90,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         //设置用户头像
         Uri uri = Uri.parse("http://img2-ak.lst.fm/i/u/avatar300s/db40b6dd8f8a76d761785ff4d5f7281e.jpg");
         user_icon.setImageURI(uri);
+        headerUserIcon.setImageURI(uri);
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -133,7 +139,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         switch (v.getId()){
             //用户头像
             case R.id.main_userIcon:
-                
+
 
                 break;
             //发表
