@@ -158,22 +158,24 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
 
         navigationView.setItemIconTintList(null);
 
+        //初始化气泡
         BadgeItem badgeItem = new BadgeItem();
-        badgeItem.setHideOnSelect(false)
-                .setText("10")
-                .setBackgroundColorResource(R.color.orange)
+        badgeItem.setHideOnSelect(true)
+                .setText("mmp")
+                .setBackgroundColorResource(R.color.green)
                 .setBorderWidth(0);
+
 
         setDefaultFragment();
         bottom_bar.setMode(BottomNavigationBar.MODE_FIXED);
 //        bottom_bar.setMode(BottomNavigationBar.MODE_SHIFTING);
         //   bottom_bar.setBackgroundStyle(BottomNavigationBar.MODE_SHIFTING);
 //        bottom_bar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_RIPPLE);
-        bottom_bar.setBarBackgroundColor(R.color.blue);//set background color for navigation bar
-//        bottom_bar.setInActiveColor(R.color.white);//unSelected icon color
-        bottom_bar.addItem(new BottomNavigationItem(R.drawable.icon_one, R.string.tab_one).setActiveColorResource(R.color.green).setBadgeItem(badgeItem))
-                .addItem(new BottomNavigationItem(R.drawable.icon_two, R.string.tab_two).setActiveColorResource(R.color.orange))
-                .addItem(new BottomNavigationItem(R.drawable.icon_three, R.string.tab_three))
+        bottom_bar.setBarBackgroundColor(R.color.white);//set background color for navigation bar
+//        bottom_bar.setInActiveColor(R.color.white);//unSelected icon color                                                                                                                            //设置上气泡
+        bottom_bar.addItem(new BottomNavigationItem(R.mipmap.bar_tuijian_select, R.string.tab_one).setInactiveIcon(this.getDrawable(R.mipmap.bar_tuijian_normal)).setActiveColorResource(R.color.blue).setBadgeItem(badgeItem))
+                .addItem(new BottomNavigationItem(R.mipmap.bar_smiel_select, R.string.tab_two).setInactiveIcon(this.getDrawable(R.mipmap.bar_smeil_normal)).setActiveColorResource(R.color.blue))
+                .addItem(new BottomNavigationItem(R.mipmap.bar_video_select, R.string.tab_three).setInactiveIcon(this.getDrawable(R.mipmap.bar_video_normal)).setActiveColorResource(R.color.blue))
                 .setFirstSelectedPosition(0)
                 .initialise();
 

@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:background="@color/blue">
         <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_gravity="center"
             android:padding="5dp"
             android:id="@+id/main_userIcon"
             android:layout_width="50dp"
@@ -33,10 +34,12 @@
             android:textSize="17dp"
             android:textColor="@color/white"/>
         <ImageView
+            android:layout_gravity="center"
+            android:padding="5dp"
             android:id="@+id/main_published"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@mipmap/raw_edit"/>
     </LinearLayout>
 
     <FrameLayout
