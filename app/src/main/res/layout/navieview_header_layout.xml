@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:background="@drawable/raw_1499917357"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     
@@ -17,6 +18,7 @@
             android:padding="5dp"
             android:id="@+id/header_userIcon"
             android:layout_width="70dp"
+            app:roundAsCircle="true"
             android:layout_height="70dp"
 
             />

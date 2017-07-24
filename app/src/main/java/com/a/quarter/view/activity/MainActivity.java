@@ -72,7 +72,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         tvMainTitle = (TextView) findViewById(R.id.main_title);
          
         imgMainPublished = (ImageView) findViewById(R.id.main_published);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout = (DrawerLayout) findViewById(R.id.main_drawer);
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
         user_icon = (SimpleDraweeView) findViewById(R.id.main_userIcon);
         user_icon.setOnClickListener(this);
@@ -139,7 +139,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         switch (v.getId()){
             //用户头像
             case R.id.main_userIcon:
-
+                drawerLayout.openDrawer(navigationView);
 
                 break;
             //发表
