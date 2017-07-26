@@ -1,7 +1,5 @@
 package com.a.quarter.view.fragment;
 
-import android.view.View;
-
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
 import com.a.quarter.presenter.JokeFragmentPresenter;
@@ -38,7 +36,7 @@ public class JokeFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-
+        
     }
 
 }

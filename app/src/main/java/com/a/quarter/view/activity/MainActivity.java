@@ -178,7 +178,6 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
                 .addItem(new BottomNavigationItem(R.mipmap.bar_video_select, R.string.tab_three).setInactiveIcon(this.getDrawable(R.mipmap.bar_video_normal)).setActiveColorResource(R.color.blue))
                 .setFirstSelectedPosition(0)
                 .initialise();
-
         bottom_bar.setTabSelectedListener(this);
 
     }

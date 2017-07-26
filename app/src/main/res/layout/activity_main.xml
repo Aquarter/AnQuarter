@@ -58,13 +58,6 @@
     </com.ashokvarma.bottomnavigation.BottomNavigationBar>
 </LinearLayout>
 
-    <!--侧滑页面-->
-    <!--<RelativeLayout-->
-        <!--android:id="@+id/main_startDrawerLayout"-->
-        <!--android:layout_gravity="start"-->
-        <!--android:background="#ffffff"-->
-        <!--android:layout_width="304dp"-->
-        <!--android:layout_height="match_parent"/>-->
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation_view"
@@ -73,7 +66,10 @@
         android:layout_gravity="left"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/navieview_header_layout"
-        app:menu="@menu/naview_menu_layout"></android.support.design.widget.NavigationView>
+        app:menu="@menu/naview_menu_layout">
+    </android.support.design.widget.NavigationView>
+
+
 
 
 </android.support.v4.widget.DrawerLayout>
