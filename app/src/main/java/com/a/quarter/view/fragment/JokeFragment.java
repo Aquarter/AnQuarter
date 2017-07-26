@@ -1,6 +1,8 @@
 package com.a.quarter.view.fragment;
 
-import android.view.View;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.RecyclerView;
+import android.widget.ProgressBar;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
@@ -15,6 +17,9 @@ import com.a.quarter.presenter.JokeFragmentPresenter;
 public class JokeFragment extends BaseFragment {
 
 
+    private SwipeRefreshLayout swip;
+    private RecyclerView recycle;
+    private ProgressBar progress;
 
     @Override
     public void onsuccess(Object o) {
@@ -38,7 +43,9 @@ public class JokeFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-
+        swip = (SwipeRefreshLayout) getView().findViewById(R.id.fragment_joke_swip);
+        recycle = (RecyclerView) getView().findViewById(R.id.fragment_joke_recycle);
+        progress = (ProgressBar) getView().findViewById(R.id.fragment_joke_progress);
     }
 
 }
