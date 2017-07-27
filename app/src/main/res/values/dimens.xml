@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <dimen name="slidingmenu_offset">80dp</dimen>
+    <dimen name="shadow_width">15dp</dimen>
+
+</resources>

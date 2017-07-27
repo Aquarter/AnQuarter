@@ -2,15 +2,10 @@ package com.a.quarter.view.activity;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseActivity;
@@ -23,6 +18,7 @@ import com.ashokvarma.bottomnavigation.BadgeItem;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 /**
  * desc：
@@ -39,11 +35,10 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     private TextView tvMainTitle;
     
     private ImageView imgMainPublished;
-    private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
     private SimpleDraweeView user_icon;
-    private View headerView;
-    private SimpleDraweeView headerUserIcon;
+    private SimpleDraweeView header_icon;
+    private SlidingMenu menu;
+    private Uri uri;
 
     @Override
     public void onsuccess(Object o) {
@@ -62,8 +57,6 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
 
     @Override
     protected int getLayoutId() {
-//        PipelineDraweeControllerBuilderSupplier supplier = new PipelineDraweeControllerBuilderSupplier(this);
-//        SimpleDraweeView.initialize(supplier);
         return R.layout.activity_main;
     }
 
@@ -71,67 +64,55 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     protected void initView() {
         bottom_bar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
         tvMainTitle = (TextView) findViewById(R.id.main_title);
-         
         imgMainPublished = (ImageView) findViewById(R.id.main_published);
-        drawerLayout = (DrawerLayout) findViewById(R.id.main_drawer);
-        navigationView = (NavigationView) findViewById(R.id.navigation_view);
         user_icon = (SimpleDraweeView) findViewById(R.id.main_userIcon);
+
         user_icon.setOnClickListener(this);
         tvMainTitle.setOnClickListener(this);
         imgMainPublished.setOnClickListener(this);
-
-        //获取头布局文件以及里边的控件
-        headerView = navigationView.getHeaderView(0);
-        headerUserIcon = (SimpleDraweeView) headerView.findViewById(R.id.header_userIcon);
-        //设置默认头像  fresco不支持直接设置src属性
-        Uri login_uri = Uri.parse("res://" + mContext.getPackageName() + "/" + R.drawable.app_logo);
-        headerUserIcon.setImageURI(login_uri);
-        headerUserIcon.setOnClickListener(this);
     }
 
     @Override
     protected void initDatas() {
+
+        uri = Uri.parse("http://img2-ak.lst.fm/i/u/avatar300s/db40b6dd8f8a76d761785ff4d5f7281e.jpg");
+
         setBottomBar();
         //设置用户头像
-        Uri uri = Uri.parse("http://img2-ak.lst.fm/i/u/avatar300s/db40b6dd8f8a76d761785ff4d5f7281e.jpg");
         user_icon.setImageURI(uri);
+        //设置slidingmenu相关
+        setSlidingMenu();
 
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+    }
+
+    private void setSlidingMenu() {
+
+        // configure the SlidingMenu
+        menu = new SlidingMenu(this);
+        menu.setMode(SlidingMenu.LEFT);
+        // 设置触摸屏幕的模式
+        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        menu.setShadowWidthRes(R.dimen.shadow_width);
+        // 设置滑动菜单视图的宽度
+        menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+        // 设置渐入渐出效果的值
+        menu.setFadeDegree(0.35f);
+        menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+        //为侧滑菜单设置布局
+        menu.setMenu(R.layout.slidingmenu);
+
+        header_icon = (SimpleDraweeView) menu.findViewById(R.id.sm_userIcon);
+        header_icon.setImageURI(uri);
+        header_icon.setOnClickListener(this);
+
+        header_icon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                switch (item.getItemId()){
-                    //我的关注
-                    case R.id.menu_favorite:
-                        Toast.makeText(MainActivity.this,"我的关注",Toast.LENGTH_SHORT).show();
-                        break;
-                    //我的收藏
-                    case R.id.menu_wallet:
-                        Toast.makeText(MainActivity.this,"我的收藏",Toast.LENGTH_SHORT).show();
-                        break;
-                    //搜索好友
-                    case R.id.menu_firends:
-                        Toast.makeText(MainActivity.this,"搜索好友",Toast.LENGTH_SHORT).show();
-                        break;
-                    //消息通知
-                    case R.id.menu_message:
-                        Toast.makeText(MainActivity.this,"消息通知",Toast.LENGTH_SHORT).show();
-                        break;
-                    //我的作品
-                    case R.id.menu_myvideo:
-                        Toast.makeText(MainActivity.this,"我的作品",Toast.LENGTH_SHORT).show();
-                        break;
-                    //设置
-                    case R.id.menu_settings:
-                        Toast.makeText(MainActivity.this,"设置",Toast.LENGTH_SHORT).show();
-                        break;
-
-                }
-
-                return true;
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,LoginActivity.class));
             }
         });
+
 
 
     }
@@ -142,25 +123,25 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         switch (v.getId()){
             //用户头像
             case R.id.main_userIcon:
-                drawerLayout.openDrawer(navigationView);
-
+                menu.toggle();
                 break;
             //发表
             case R.id.main_published:
 
                 break;
-            case R.id.header_userIcon:
-                startActivity(new Intent(MainActivity.this,LoginActivity.class));
-                break;
-
         }
+
+//        switch (menu.getId()){
+//            case R.id.sm_userIcon:
+//                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+//                break;
+//        }
 
     }
 
     //设置bar相关
     private void setBottomBar() {
 
-        navigationView.setItemIconTintList(null);
 
         //初始化气泡
         BadgeItem badgeItem = new BadgeItem();
