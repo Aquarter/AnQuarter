@@ -43,6 +43,7 @@ public class JokeFragment extends BaseFragment {
 
     @Override
     protected void initView() {
+
         swip = (SwipeRefreshLayout) getView().findViewById(R.id.fragment_joke_swip);
         recycle = (RecyclerView) getView().findViewById(R.id.fragment_joke_recycle);
         progress = (ProgressBar) getView().findViewById(R.id.fragment_joke_progress);

@@ -1,6 +1,5 @@
 package com.a.quarter.view.fragment;
 
-import android.app.Activity;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -83,7 +82,7 @@ public class VideoFragment extends BaseFragment{
         videoTable.post(new Runnable() {
             @Override
             public void run() {
-                setIndicator(videoTable,50,50);
+                setIndicator(videoTable,30,30);
             }
         });
     }
