@@ -8,71 +8,104 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageView
-            android:id="@+id/activity_login_native_back"
-            android:src="@mipmap/ic_action_back"
+            android:id="@+id/activity_regist_back"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_action_back" />
+
         <TextView
-            android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
         <TextView
-            android:id="@+id/activity_login_native_regist"
-            android:text="已有账号？"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/white"
-            android:padding="5dp"
+            android:id="@+id/activity_regist_contain"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="5dp"
+            android:text="已有账号？"
+            android:textColor="@color/white" />
     </LinearLayout>
 
     <ImageView
-        android:src="@drawable/app_logo"
-        android:layout_marginTop="90dp"
-        android:layout_gravity="center_horizontal"
         android:layout_width="80dp"
-        android:layout_height="80dp" />
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/app_logo" />
+
     <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:orientation="vertical"
         android:background="#10ffffff"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
 
         <EditText
-            android:id="@+id/activity_login_native_name"
-            android:hint="账号"
-            android:textColorHint="@color/white"
+            android:id="@+id/activity_regist_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="请输入用户名"
+            android:textColorHint="@color/white" />
+
         <EditText
-            android:id="@+id/activity_login_native_pwd"
-            android:textColorHint="@color/white"
-            android:hint="密码"
+            android:id="@+id/activity_regist_pwd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="请输入密码"
+            android:textColorHint="@color/white" />
+        <EditText
+            android:id="@+id/activity_regist_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入手机号"
+            android:textColorHint="@color/white" />
+        <RadioGroup
+            android:id="@+id/activity_regist_radiogroup"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/activity_regist_man"
+                android:text="男"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/activity_regist_woman"
+                android:text="女"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
+
     </LinearLayout>
 
-        <Button
-            android:layout_marginTop="10dp"
-            android:id="@+id/activity_login_native_login"
-            android:text="注册"
-            android:layout_gravity="center_horizontal"
-            android:textColor="@color/white"
-            android:background="@drawable/button_shape"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/activity_login_native_login"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_shape"
+        android:text="注册"
+        android:textColor="@color/white" />
 
     <TextView
-        android:id="@+id/activity_login_native_tourist"
+        android:id="@+id/activity_regist_tourist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:text="游客登陆"
         android:padding="10dp"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:text="游客登陆"
+        android:textColor="@color/white" />
 
 </LinearLayout>

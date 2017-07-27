@@ -1,5 +1,6 @@
 package com.a.quarter.view.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -81,7 +82,7 @@ public class LoginNativeActivity extends BaseActivity<LoginNativePresenter> impl
                 finish();
                 break;
             case R.id.activity_login_native_regist:
-                Toast.makeText(mContext, "正在研发中。。。", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(mContext,RegistActivity.class));
                 break;
             case R.id.activity_login_native_forgetpwd:
                 Toast.makeText(mContext, "正在研发中。。。", Toast.LENGTH_SHORT).show();

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.a.quarter.R;
 import com.a.quarter.application.MyApplication;
 
 
@@ -19,6 +20,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        overridePendingTransition(R.anim.left_in, R.anim.left_out);
         super.onCreate(savedInstanceState);
 
         setContentView(getLayoutId());
