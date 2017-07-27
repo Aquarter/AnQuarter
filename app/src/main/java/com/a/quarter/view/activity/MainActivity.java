@@ -150,7 +150,6 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
                 .setBackgroundColorResource(R.color.green)
                 .setBorderWidth(0);
 
-
         setDefaultFragment();
         bottom_bar.setMode(BottomNavigationBar.MODE_FIXED);
 //        bottom_bar.setMode(BottomNavigationBar.MODE_SHIFTING);
