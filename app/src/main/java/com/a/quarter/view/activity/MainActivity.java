@@ -1,5 +1,6 @@
 package com.a.quarter.view.activity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -82,6 +83,10 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         //获取头布局文件以及里边的控件
         headerView = navigationView.getHeaderView(0);
         headerUserIcon = (SimpleDraweeView) headerView.findViewById(R.id.header_userIcon);
+        //设置默认头像  fresco不支持直接设置src属性
+        Uri login_uri = Uri.parse("res://" + mContext.getPackageName() + "/" + R.drawable.app_logo);
+        headerUserIcon.setImageURI(login_uri);
+        headerUserIcon.setOnClickListener(this);
     }
 
     @Override
@@ -90,7 +95,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         //设置用户头像
         Uri uri = Uri.parse("http://img2-ak.lst.fm/i/u/avatar300s/db40b6dd8f8a76d761785ff4d5f7281e.jpg");
         user_icon.setImageURI(uri);
-        headerUserIcon.setImageURI(uri);
+
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -122,8 +127,6 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
                         Toast.makeText(MainActivity.this,"设置",Toast.LENGTH_SHORT).show();
                         break;
 
-
-
                 }
 
                 return true;
@@ -146,8 +149,9 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
             case R.id.main_published:
 
                 break;
-
-
+            case R.id.header_userIcon:
+                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                break;
 
         }
 

@@ -4,14 +4,24 @@
     android:layout_height="match_parent">
 
 
-    <TextView
-        android:id="@+id/tv_fragment_text"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/fragment_joke_swip"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="笑话"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp"/>
+        android:layout_height="match_parent">
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_joke_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/fragment_joke_progress"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

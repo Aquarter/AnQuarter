@@ -4,5 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/purple">
-
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/popular_swiperefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/popular_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>
