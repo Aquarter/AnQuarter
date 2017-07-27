@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
 import com.a.quarter.presenter.video.VideoNearbyPresenter;
+import com.a.quarter.view.adapter.VideoRecyclerAdapter;
 
 /**
  * @类作用:
@@ -23,6 +25,7 @@ public class VideoNearbyFragment extends BaseFragment {
 
     private SwipeRefreshLayout nearby_swiperefresh;
     private RecyclerView nearby_recycler;
+    private VideoRecyclerAdapter videoRecyclerAdapter;
 
     @Override
     public void onsuccess(Object o) {
@@ -52,7 +55,11 @@ public class VideoNearbyFragment extends BaseFragment {
     }
 
     private void setData() {
-
+        //设置recycler使用瀑布流
+        nearby_recycler.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        //设置适配器
+        videoRecyclerAdapter = new VideoRecyclerAdapter(getActivity());
+        nearby_recycler.setAdapter(videoRecyclerAdapter);
     }
 
     @Override
