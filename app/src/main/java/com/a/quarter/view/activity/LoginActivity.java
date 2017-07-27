@@ -1,5 +1,12 @@
 package com.a.quarter.view.activity;
 
+import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.a.quarter.R;
 import com.a.quarter.base.BaseActivity;
 import com.a.quarter.presenter.LoginPresenter;
@@ -9,8 +16,13 @@ import com.a.quarter.view.iview.ILoginView;
  * Created by qizepu on 2017/7/25.
  */
 
-public class LoginActivity extends BaseActivity<LoginPresenter> implements ILoginView {
+public class LoginActivity extends BaseActivity<LoginPresenter> implements ILoginView, View.OnClickListener {
 
+
+    private ImageView back;
+    private TextView else_login;
+    private Button qq_login;
+    private Button wechat_login;
 
     @Override
     public void onsuccess(Object o) {
@@ -34,11 +46,37 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
 
     @Override
     protected void initView() {
-
+        back = (ImageView) findViewById(R.id.activity_login_back);
+        else_login = (TextView) findViewById(R.id.activity_login_else_login);
+        qq_login = (Button) findViewById(R.id.activity_login_qq);
+        wechat_login = (Button) findViewById(R.id.activity_login_wechat);
+        back.setOnClickListener(this);
+        else_login.setOnClickListener(this);
+        qq_login.setOnClickListener(this);
+        wechat_login.setOnClickListener(this);
     }
 
     @Override
     protected void initDatas() {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.activity_login_back:
+                finish();
+                break;
+            case R.id.activity_login_else_login:
+                startActivity(new Intent(mContext,LoginNativeActivity.class));
+                break;
+            case R.id.activity_login_qq:
+                Toast.makeText(mContext, "正在研发中。。。", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.activity_login_wechat:
+                Toast.makeText(mContext, "正在研发中。。。", Toast.LENGTH_SHORT).show();
+                break;
+
+        }
     }
 }

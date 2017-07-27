@@ -3,15 +3,15 @@
 
     <!--   填充背景颜色-->
     <solid
-        android:color="@color/colorAccent"></solid>
+        android:color="@color/green"></solid>
 
     <!-- 让矩形的四个角变的由弧度 -->
     <corners
-        android:bottomLeftRadius="20dp"
-        android:bottomRightRadius="20dp"
-        android:topLeftRadius="20dp"
-        android:topRightRadius="20dp"
-        android:radius="20dp"
+        android:bottomLeftRadius="10dp"
+        android:bottomRightRadius="10dp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp"
+        android:radius="10dp"
         />
 
 </shape>

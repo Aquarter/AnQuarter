@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
-import com.a.quarter.presenter.RecommendFragmentPresenter;
+import com.a.quarter.presenter.recommend.RecommendFragmentPresenter;
 import com.a.quarter.view.fragment.recommendfragment.FollowFragment;
 import com.a.quarter.view.fragment.recommendfragment.HotFragment;
 

@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/activity_login_back"
         android:layout_width="wrap_content"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/ic_action_back"
         android:layout_height="wrap_content" />
 
     <ImageView

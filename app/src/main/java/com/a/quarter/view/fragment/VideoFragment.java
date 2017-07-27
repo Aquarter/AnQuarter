@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
-import com.a.quarter.presenter.VideoFragmentPresenter;
+import com.a.quarter.presenter.video.VideoFragmentPresenter;
 import com.a.quarter.view.adapter.TableAdapter;
 import com.a.quarter.view.fragment.videofragment.VideoNearbyFragment;
 import com.a.quarter.view.fragment.videofragment.VideoPopularFragment;

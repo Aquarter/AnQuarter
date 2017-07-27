@@ -6,7 +6,7 @@ import android.widget.ProgressBar;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
-import com.a.quarter.presenter.JokeFragmentPresenter;
+import com.a.quarter.presenter.joke.JokeFragmentPresenter;
 
 /**
  * desc：

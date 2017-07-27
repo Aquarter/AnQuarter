@@ -2,8 +2,8 @@ package com.a.quarter.view.fragment.recommendfragment;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
-import com.a.quarter.presenter.commend.RecommendHotPresenter;
-import com.a.quarter.view.iview.commend.IRecommendHotFragmentView;
+import com.a.quarter.presenter.recommend.RecommendHotPresenter;
+import com.a.quarter.view.iview.recommend.IRecommendHotFragmentView;
 
 /**
  * Created by qizepu on 2017/7/26.

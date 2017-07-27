@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".view.activity.PersonalActivity"/>
         <activity android:name=".view.activity.LoginActivity"/>
+        <activity android:name=".view.activity.LoginNativeActivity" android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
 
 
     </application>

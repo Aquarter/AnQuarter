@@ -83,7 +83,6 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         //设置slidingmenu相关
         setSlidingMenu();
 
-
     }
 
     private void setSlidingMenu() {
@@ -92,7 +91,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         menu = new SlidingMenu(this);
         menu.setMode(SlidingMenu.LEFT);
         // 设置触摸屏幕的模式
-        menu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        menu.setTouchModeAbove(SlidingMenu.SLIDING_WINDOW);
         menu.setShadowWidthRes(R.dimen.shadow_width);
         // 设置滑动菜单视图的宽度
         menu.setBehindOffsetRes(R.dimen.slidingmenu_offset);
@@ -113,8 +112,6 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
             }
         });
 
-
-
     }
 
     @Override
@@ -130,12 +127,6 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
 
                 break;
         }
-
-//        switch (menu.getId()){
-//            case R.id.sm_userIcon:
-//                startActivity(new Intent(MainActivity.this,LoginActivity.class));
-//                break;
-//        }
 
     }
 
