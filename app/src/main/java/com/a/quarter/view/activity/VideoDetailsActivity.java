@@ -71,7 +71,8 @@ public class VideoDetailsActivity extends BaseActivity<VideoDetailsPresenter> im
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.inculde_title_back:
-
+                finish();
+                overridePendingTransition(R.anim.right_in,R.anim.right_out);
                 break;
         }
 
