@@ -51,4 +51,7 @@ dependencies {
     //悬浮按钮
     compile 'com.cpacm:floatingmusicmenu:1.0.0'
     compile project(':library')
+    //魅族Banner
+    compile 'com.github.pinguo-zhouwei:MZBannerView:v1.1.0'
+    compile 'org.xutils:xutils:3.5.0'
 }
