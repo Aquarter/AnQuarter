@@ -1,16 +1,18 @@
 package com.a.quarter.view.activity;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseActivity;
+import com.a.quarter.model.bean.RegisteredDataBean;
 import com.a.quarter.presenter.RegistPresenter;
+import com.a.quarter.utils.TUtil;
 import com.a.quarter.view.iview.IRegistView;
 
 /**
@@ -28,10 +30,12 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements IRe
     private RadioButton man;
     private RadioButton woman;
     private RadioGroup sex;
+    private Button regist;
 
     @Override
     public void onsuccess(Object o) {
-
+        RegisteredDataBean registeredDataBean = (RegisteredDataBean) o;
+        //TODO
     }
 
     @Override
@@ -60,9 +64,11 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements IRe
         man = (RadioButton) findViewById(R.id.activity_regist_man);        //性别男
         woman = (RadioButton) findViewById(R.id.activity_regist_woman);    //性别女
         sex = (RadioGroup) findViewById(R.id.activity_regist_radiogroup);  //性别
+        regist = (Button) findViewById(R.id.activity_regist_regist);
 
         //不要忘记注册点击事件
         back.setOnClickListener(this);
+        regist.setOnClickListener(this);
 
     }
 
@@ -76,9 +82,30 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements IRe
         switch (v.getId()){
             case R.id.activity_regist_back:
                 finish();
+                overridePendingTransition(R.anim.right_in,R.anim.right_out);
+                break;
+            case R.id.activity_regist_regist:   //注册
+                String username = name.getText().toString();
+                String password = pwd.getText().toString();
+                String mPhone = phone.getText().toString();
+                if (username == null || username.equals("")){
+                    TUtil.showShort(mContext,"用户名不能为空");
+                }else if (password == null || password.equals("")){
+                    TUtil.showShort(mContext,"密码不能为空");
+                }else if (mPhone == null || mPhone.equals("")){
+                    TUtil.showShort(mContext,"电话不能为空");
+                }else {
+                    if (man.isChecked()){
+                        mPresenter.getRegistData(mContext,username,password,mPhone,"男");
+                    }else if (woman.isChecked()){
+                        mPresenter.getRegistData(mContext,username,password,mPhone,"女");
+                    }
+                }
+
+
                 break;
             default:
-                Toast.makeText(mContext, "正在研发中", Toast.LENGTH_SHORT).show();
+                TUtil.showShort(mContext,"正在研发中");
         }
     }
 }

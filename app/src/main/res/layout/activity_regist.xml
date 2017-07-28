@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
+    android:background="@drawable/raw_1499917357"
     android:orientation="vertical">
 
     <LinearLayout
@@ -35,14 +35,14 @@
         android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="90dp"
-        android:src="@drawable/app_logo" />
+        android:src="@mipmap/raw_1500977101" />
 
     <LinearLayout
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
-        android:background="#10ffffff"
+        android:background="#50ffffff"
         android:orientation="vertical">
 
         <EditText
@@ -89,7 +89,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/activity_login_native_login"
+        android:id="@+id/activity_regist_regist"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
