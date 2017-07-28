@@ -6,6 +6,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+import android.widget.Toast;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
@@ -60,6 +61,17 @@ public class VideoNearbyFragment extends BaseFragment {
         //设置适配器
         videoRecyclerAdapter = new VideoRecyclerAdapter(getActivity());
         nearby_recycler.setAdapter(videoRecyclerAdapter);
+        videoRecyclerAdapter.setOnItemClinckListener(new VideoRecyclerAdapter.OnClickListenerr() {
+            @Override
+            public void onItemClickListener(View view, int possition) {
+                Toast.makeText(mContext, possition + "", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onLongItemClickListener(View view, int possition) {
+
+            }
+        });
     }
 
     @Override
