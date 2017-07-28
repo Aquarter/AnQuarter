@@ -32,9 +32,11 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init();
+        initView();
     }
 
     private void init() {
+
         mActivity = getActivity();
         mContext = getActivity();
         createPresenter();
