@@ -24,7 +24,7 @@
         ]
     },
     {
-        "outputFile": "C:\\Android_Studio_SDK\\workspace\\AnQuarter2\\library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "outputFile": "C:\\Android_Work\\AnQuarter\\library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -35,7 +35,7 @@
                     "endOffset": 1130
                 },
                 "from": {
-                    "file": "C:\\Android_Studio_SDK\\workspace\\AnQuarter2\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "C:\\Android_Work\\AnQuarter\\library\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,

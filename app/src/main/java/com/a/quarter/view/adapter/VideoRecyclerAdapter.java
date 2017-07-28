@@ -55,7 +55,6 @@ public class VideoRecyclerAdapter extends  RecyclerView.Adapter<VideoRecyclerAda
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Toast.makeText(mContext, list.size() + "", Toast.LENGTH_SHORT).show();
         View view = View.inflate(mContext, R.layout.item_video_recycler,null);
         MyViewHolder myViewHolder = new MyViewHolder(view);
         return myViewHolder;
@@ -90,6 +89,8 @@ public class VideoRecyclerAdapter extends  RecyclerView.Adapter<VideoRecyclerAda
     public int getItemCount() {
         return list.size();
     }
+
+
 
 //    public void addListData(List<NewsDataBean.ResultBean.DataBean> data) {
 //        list.addAll(data);

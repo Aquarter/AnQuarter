@@ -1,12 +1,18 @@
 package com.a.quarter.view.fragment;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -14,8 +20,15 @@ import android.widget.TextView;
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
 import com.a.quarter.presenter.recommend.RecommendFragmentPresenter;
+import com.a.quarter.view.adapter.TableAdapter;
 import com.a.quarter.view.fragment.recommendfragment.FollowFragment;
 import com.a.quarter.view.fragment.recommendfragment.HotFragment;
+import com.a.quarter.view.fragment.videofragment.VideoNearbyFragment;
+import com.a.quarter.view.fragment.videofragment.VideoPopularFragment;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * desc：
@@ -25,14 +38,11 @@ import com.a.quarter.view.fragment.recommendfragment.HotFragment;
 
 public class RecommendFragment extends BaseFragment {
 
-    private RadioGroup radiogroup;
-    private RadioButton hot;
-    private RadioButton follow;
-    private TextView tv_hot;
-    private TextView tv_follow;
-    private FragmentManager manager;
-    private HotFragment hotFragment;
-    private FollowFragment followFragment;
+    private ViewPager videoViewPager;
+    private TabLayout videoTable;
+    private TableAdapter tableAdapter;
+    private String[] TableText = new String[] {"热点","关注"};
+    private List<Fragment> mFgmList = new ArrayList<>();
 
     @Override
     public void onsuccess(Object o) {
@@ -48,13 +58,25 @@ public class RecommendFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView();
-        setDefaultFragmetData();
-        setRadioGroupListener();
+        setData();
     }
 
-
-
-
+    private void setData() {
+        mFgmList.add(new HotFragment());
+        mFgmList.add(new FollowFragment());
+        tableAdapter = new TableAdapter(getChildFragmentManager());
+        tableAdapter.getmText(TableText);
+        tableAdapter.getmFamList(mFgmList);
+        videoViewPager.setAdapter(tableAdapter);
+        videoTable.setupWithViewPager(videoViewPager);
+//        videoTable.setTabMode(TabLayout.MODE_SCROLLABLE);
+        videoTable.post(new Runnable() {
+            @Override
+            public void run() {
+                setIndicator(videoTable,30,30);
+            }
+        });
+    }
     @Override
     protected void createPresenter() {
         mPresenter=new RecommendFragmentPresenter();
@@ -67,56 +89,39 @@ public class RecommendFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        FrameLayout framelayout = (FrameLayout) getView().findViewById(R.id.fragment_recommend_framelayout);
-        radiogroup = (RadioGroup) getView().findViewById(R.id.fragment_recommend_radio_group);
-        hot = (RadioButton) getView().findViewById(R.id.fragment_recommend_rbtn_hot);
-        follow = (RadioButton) getView().findViewById(R.id.fragment_recommend_rbtn_follow);
-        tv_hot = (TextView) getView().findViewById(R.id.fragment_recommend_tv_hot);
-        tv_follow = (TextView) getView().findViewById(R.id.fragment_recommend_tv_follow);
-
+        videoTable = (TabLayout) getActivity().findViewById(R.id.inculde_tableyout);
+        videoViewPager = (ViewPager) getActivity().findViewById(R.id.inculde_viewpager);
     }
 
-    //设置默认显示的fragment
-    private void setDefaultFragmetData() {
-        hotFragment = new HotFragment();
-        followFragment = new FollowFragment();
-        manager = getActivity().getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.fragment_recommend_framelayout, followFragment);
-        transaction.add(R.id.fragment_recommend_framelayout, hotFragment).hide(hotFragment);
-        transaction.commit();
-    }
-    //切换fragment
-    private void setRadioGroupListener() {
-        radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                switch (checkedId){
-                    case R.id.fragment_recommend_rbtn_hot:
-                        showHot();
-                        tv_hot.setBackgroundResource(R.color.blue);
-                        tv_follow.setBackgroundResource(R.color.white);
-                        break;
-                    case R.id.fragment_recommend_rbtn_follow:
-                        showFollow();
-                        tv_hot.setBackgroundResource(R.color.white);
-                        tv_follow.setBackgroundResource(R.color.blue);
-                        break;
-                }
-            }
-        });
-    }
-    //显示热门界面
-    public void showHot(){
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.show(hotFragment).hide(followFragment);
-        transaction.commit();
-    }
-    //显示关注界面
-    public void showFollow(){
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.show(followFragment).hide(hotFragment);
-        transaction.commit();
-    }
+    //
+    public void setIndicator (TabLayout tabs,int leftDip,int rightDip) {
+        Class<?> tabLayout = tabs.getClass();
+        Field tabStrip = null;
+        try {
+            tabStrip = tabLayout.getDeclaredField("mTabStrip");
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
 
+        tabStrip.setAccessible(true);
+        LinearLayout llTab = null;
+        try {
+            llTab = (LinearLayout) tabStrip.get(tabs);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        int left = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, leftDip, Resources.getSystem().getDisplayMetrics());
+        int right = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, rightDip, Resources.getSystem().getDisplayMetrics());
+
+        for (int i = 0; i < llTab.getChildCount(); i++) {
+            View child = llTab.getChildAt(i);
+            child.setPadding(0, 0, 0, 0);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
+            params.leftMargin = left;
+            params.rightMargin = right;
+            child.setLayoutParams(params);
+            child.invalidate();
+        }
+    }
 }

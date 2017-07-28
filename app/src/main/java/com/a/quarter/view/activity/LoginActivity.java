@@ -5,11 +5,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseActivity;
 import com.a.quarter.presenter.LoginPresenter;
+import com.a.quarter.utils.TUtil;
 import com.a.quarter.view.iview.ILoginView;
 
 /**
@@ -66,15 +66,16 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
         switch (v.getId()){
             case R.id.activity_login_back:
                 finish();
+                overridePendingTransition(R.anim.right_in,R.anim.right_out);
                 break;
             case R.id.activity_login_else_login:
                 startActivity(new Intent(mContext,LoginNativeActivity.class));
                 break;
             case R.id.activity_login_qq:
-                Toast.makeText(mContext, "正在研发中。。。", Toast.LENGTH_SHORT).show();
+                TUtil.showShort(mContext,"正在研发中");
                 break;
             case R.id.activity_login_wechat:
-                Toast.makeText(mContext, "正在研发中。。。", Toast.LENGTH_SHORT).show();
+                TUtil.showShort(mContext,"正在研发中");
                 break;
 
         }

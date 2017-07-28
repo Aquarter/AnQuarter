@@ -1,15 +1,18 @@
 package com.a.quarter.view.fragment.videofragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+import android.widget.Toast;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
 import com.a.quarter.presenter.video.VideoNearbyPresenter;
+import com.a.quarter.view.activity.VideoDetailsActivity;
 import com.a.quarter.view.adapter.VideoRecyclerAdapter;
 
 /**
@@ -60,6 +63,20 @@ public class VideoNearbyFragment extends BaseFragment {
         //设置适配器
         videoRecyclerAdapter = new VideoRecyclerAdapter(getActivity());
         nearby_recycler.setAdapter(videoRecyclerAdapter);
+        videoRecyclerAdapter.setOnItemClinckListener(new VideoRecyclerAdapter.OnClickListenerr() {
+            @Override
+            public void onItemClickListener(View view, int possition) {
+                Toast.makeText(mContext, possition + "", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), VideoDetailsActivity.class);
+                intent.putExtra("text",possition);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongItemClickListener(View view, int possition) {
+
+            }
+        });
     }
 
     @Override

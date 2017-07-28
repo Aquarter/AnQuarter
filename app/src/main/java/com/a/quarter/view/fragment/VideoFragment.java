@@ -29,7 +29,6 @@ import java.util.List;
 
 public class VideoFragment extends BaseFragment{
 
-
     private ViewPager videoViewPager;
     private TabLayout videoTable;
     private TableAdapter tableAdapter;
