@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/blue"
+    android:background="@drawable/raw_1499917357"
     android:layout_height="match_parent">
 
     <ImageView
@@ -14,7 +14,7 @@
         android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         android:layout_width="80dp"
-        android:src="@drawable/app_logo"
+        android:src="@mipmap/raw_1500977101"
         android:layout_height="80sp" />
 
     <TextView

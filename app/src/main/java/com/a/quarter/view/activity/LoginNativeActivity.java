@@ -6,11 +6,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseActivity;
 import com.a.quarter.presenter.LoginNativePresenter;
+import com.a.quarter.utils.TUtil;
 import com.a.quarter.view.iview.ILoginNativeView;
 
 /**
@@ -80,24 +80,25 @@ public class LoginNativeActivity extends BaseActivity<LoginNativePresenter> impl
         switch (v.getId()){
             case R.id.activity_login_native_back:
                 finish();
+                overridePendingTransition(R.anim.left_in,R.anim.left_out);
                 break;
             case R.id.activity_login_native_regist:
                 startActivity(new Intent(mContext,RegistActivity.class));
                 break;
             case R.id.activity_login_native_forgetpwd:
-                Toast.makeText(mContext, "正在研发中。。。", Toast.LENGTH_SHORT).show();
+                TUtil.showShort(mContext,"正在研发中");
                 break;
             case R.id.activity_login_native_tourist:
-                Toast.makeText(mContext, "正在研发中。。。", Toast.LENGTH_SHORT).show();
+                TUtil.showShort(mContext,"正在研发中");
                 break;
             case R.id.activity_login_native_name:
-                Toast.makeText(mContext, "正在研发中。。。", Toast.LENGTH_SHORT).show();
+                TUtil.showShort(mContext,"正在研发中");
                 break;
             case R.id.activity_login_native_pwd:
-                Toast.makeText(mContext, "正在研发中。。。", Toast.LENGTH_SHORT).show();
+                TUtil.showShort(mContext,"正在研发中");
                 break;
             case R.id.activity_login_native_login:
-                Toast.makeText(mContext, "正在研发中。。。", Toast.LENGTH_SHORT).show();
+                TUtil.showShort(mContext,"正在研发中");
                 break;
         }
     }
