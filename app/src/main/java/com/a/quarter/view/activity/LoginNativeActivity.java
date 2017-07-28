@@ -80,7 +80,7 @@ public class LoginNativeActivity extends BaseActivity<LoginNativePresenter> impl
         switch (v.getId()){
             case R.id.activity_login_native_back:
                 finish();
-                overridePendingTransition(R.anim.left_in,R.anim.left_out);
+                overridePendingTransition(R.anim.right_in,R.anim.right_out);
                 break;
             case R.id.activity_login_native_regist:
                 startActivity(new Intent(mContext,RegistActivity.class));

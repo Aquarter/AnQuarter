@@ -82,6 +82,7 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements IRe
         switch (v.getId()){
             case R.id.activity_regist_back:
                 finish();
+                overridePendingTransition(R.anim.right_in,R.anim.right_out);
                 break;
             case R.id.activity_regist_regist:   //注册
                 String username = name.getText().toString();

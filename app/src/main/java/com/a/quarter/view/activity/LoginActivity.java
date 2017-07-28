@@ -66,6 +66,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
         switch (v.getId()){
             case R.id.activity_login_back:
                 finish();
+                overridePendingTransition(R.anim.right_in,R.anim.right_out);
                 break;
             case R.id.activity_login_else_login:
                 startActivity(new Intent(mContext,LoginNativeActivity.class));
