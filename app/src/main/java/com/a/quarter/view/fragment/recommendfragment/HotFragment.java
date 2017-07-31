@@ -28,7 +28,11 @@ public class HotFragment extends BaseFragment<RecommendHotPresenter> implements 
     public static final String []RES = new String[]{"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497595598494&di=3cd4f5b04c879b7a2f97fbdd5ac30c72&imgtype=0&src=http%3A%2F%2Fs1.sinaimg.cn%2Fmiddle%2F87ef2a4btad7e87dafec0%26690",
             "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497595688138&di=de810f2b974d801c5dbff4c253fa7bf1&imgtype=0&src=http%3A%2F%2Feasyread.ph.126.net%2FnP8NmwZKbhQHc1QpeCRBeQ%3D%3D%2F7916738806686876056.jpg",
             "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497533248156&di=cb44189a06d55c504ee18e1e269c20e9&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201507%2F30%2F20150730163204_A24MX.thumb.700_0.jpeg" };
-private ArrayList<String> urlList = new ArrayList<>();
+
+
+
+    private ArrayList<String> urlList = new ArrayList<>();
+
 
     private MZBannerView bannerView;
 
@@ -67,8 +71,12 @@ private ArrayList<String> urlList = new ArrayList<>();
 
 
         //加载 网络上的图片
-        for(int i=0;i<RES.length;i++){
-            urlList.add(RES[i]);
+
+           urlList.clear();
+                for(int i=0;i<RES.length;i++){
+                urlList.add(RES[i]);
+
+
         }
         // 设置数据
         bannerView.setPages(urlList, new MZHolderCreator<BannerViewHolder>() {
@@ -110,5 +118,16 @@ private ArrayList<String> urlList = new ArrayList<>();
 //        }
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        bannerView.pause();
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        bannerView.start();
+    }
 }

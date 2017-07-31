@@ -74,7 +74,7 @@
             android:layout_marginLeft="30dp"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/raw_like"
+            android:src="@mipmap/raw_like"
             />
         <TextView
             android:textSize="22sp"
@@ -104,7 +104,7 @@
             android:layout_marginLeft="30dp"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/raw_star"
+            android:src="@mipmap/raw_star"
             />
         <TextView
             android:textSize="22sp"
@@ -135,7 +135,7 @@
             android:layout_marginLeft="30dp"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/raw_search"
+            android:src="@mipmap/raw_search"
             />
         <TextView
             android:textSize="22sp"
@@ -165,7 +165,7 @@
             android:layout_marginLeft="30dp"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/raw_bell"
+            android:src="@mipmap/raw_bell"
             />
         <TextView
             android:textSize="22sp"
@@ -226,7 +226,7 @@
             android:layout_gravity="center"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/raw_myvieo"
+            android:src="@mipmap/raw_myvieo"
             />
         <TextView
             android:layout_gravity="center"
@@ -248,7 +248,7 @@
             android:layout_gravity="center"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/raw_settings"
+            android:src="@mipmap/raw_settings"
             />
         <TextView
             android:layout_gravity="center"

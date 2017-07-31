@@ -124,7 +124,8 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
                 break;
             //发表
             case R.id.main_published:
-
+                Intent intent = new Intent(MainActivity.this, UploadActivity.class);
+                startActivity(intent);
                 break;
         }
 

@@ -36,9 +36,9 @@
             android:textSize="17dp"
             android:textColor="@color/white"/>
         <ImageView
+            android:id="@+id/main_published"
             android:layout_gravity="center"
             android:padding="5dp"
-            android:id="@+id/main_published"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@mipmap/raw_edit"/>

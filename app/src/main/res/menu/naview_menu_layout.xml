@@ -2,19 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_favorite"
-        android:icon="@drawable/raw_like"
+        android:icon="@mipmap/raw_like"
         android:title="我的关注" />
     <item
         android:id="@+id/menu_wallet"
-        android:icon="@drawable/raw_star"
+        android:icon="@mipmap/raw_star"
         android:title="我的收藏" />
     <item
         android:id="@+id/menu_firends"
-        android:icon="@drawable/raw_search"
+        android:icon="@mipmap/raw_search"
         android:title="搜索好友" />
     <item
         android:id="@+id/menu_message"
-        android:icon="@drawable/raw_bell"
+        android:icon="@mipmap/raw_bell"
         android:title="消息通知" />
 
 
@@ -29,12 +29,12 @@
 
         <item
             android:id="@+id/menu_myvideo"
-            android:icon="@drawable/raw_myvieo"
+            android:icon="@mipmap/raw_myvieo"
             android:title="我的作品"
             ></item>
         <item
             android:id="@+id/menu_settings"
-            android:icon="@drawable/raw_settings"
+            android:icon="@mipmap/raw_settings"
             android:title="设置"
 
             ></item>
