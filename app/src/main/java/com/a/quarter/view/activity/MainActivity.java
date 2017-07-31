@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.a.quarter.R;
@@ -39,6 +40,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     private SimpleDraweeView header_icon;
     private SlidingMenu menu;
     private Uri uri;
+    private LinearLayout slidingmenu_attention;
 
     @Override
     public void onsuccess(Object o) {
@@ -100,6 +102,15 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         menu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
         //为侧滑菜单设置布局
         menu.setMenu(R.layout.slidingmenu);
+
+        slidingmenu_attention = (LinearLayout) findViewById(R.id.slidingmenu_attention);
+        slidingmenu_attention.setOnClickListener(this);
+        slidingmenu_attention.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,AttentionActicity.class));
+            }
+        });
 
         header_icon = (SimpleDraweeView) menu.findViewById(R.id.sm_userIcon);
         header_icon.setImageURI(uri);

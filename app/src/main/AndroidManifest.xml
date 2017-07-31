@@ -29,6 +29,7 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity android:name=".view.activity.VideoDetailsActivity" />
         <activity android:name=".view.activity.UploadActivity" />
+        <activity android:name=".view.activity.AttentionActicity"/>
     </application>
 
 </manifest>

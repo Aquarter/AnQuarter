@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:background="@color/blue"
+    android:padding="10dp">
+    <LinearLayout
+        android:id="@+id/toolbar_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:background="@mipmap/raw_toolbar_leftarrow"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="返回"
+            android:textSize="15sp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:text="@string/toolbar_attention"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/toolbar_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/toolbar_popular"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"/>
+
+</LinearLayout>
