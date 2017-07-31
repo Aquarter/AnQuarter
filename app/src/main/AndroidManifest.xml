@@ -29,7 +29,10 @@
             android:windowSoftInputMode="adjustUnspecified|stateHidden" />
         <activity android:name=".view.activity.VideoDetailsActivity" />
         <activity android:name=".view.activity.UploadActivity" />
-        <activity android:name=".view.activity.AttentionActicity"/>
+        <activity android:name=".view.activity.AttentionActicity"/>//我得关注
+        <activity android:name=".view.activity.CollectionActivity"/>//我得收藏
+        <activity android:name=".view.activity.FriendsActivity"/>//搜索好友
+        <activity android:name=".view.activity.NoticeActivity"/>//消息通知
     </application>
 
 </manifest>

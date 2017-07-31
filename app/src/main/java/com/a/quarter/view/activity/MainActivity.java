@@ -41,6 +41,9 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     private SlidingMenu menu;
     private Uri uri;
     private LinearLayout slidingmenu_attention;
+    private LinearLayout slidingmenu_notice;
+    private LinearLayout slidingmenu_friends;
+    private LinearLayout slidingmenu_collection;
 
     @Override
     public void onsuccess(Object o) {
@@ -103,12 +106,38 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         //为侧滑菜单设置布局
         menu.setMenu(R.layout.slidingmenu);
 
-        slidingmenu_attention = (LinearLayout) findViewById(R.id.slidingmenu_attention);
+        slidingmenu_notice = (LinearLayout) findViewById(R.id.slidingmenu_notice);//消息通知
+        slidingmenu_friends = (LinearLayout) findViewById(R.id.slidingmenu_friends);//我得好友
+        slidingmenu_collection = (LinearLayout) findViewById(R.id.slidingmenu_collection);//我得收藏
+        slidingmenu_attention = (LinearLayout) findViewById(R.id.slidingmenu_attention);//我的关注
+
+
         slidingmenu_attention.setOnClickListener(this);
         slidingmenu_attention.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,AttentionActicity.class));
+            }
+        });
+        slidingmenu_collection.setOnClickListener(this);
+        slidingmenu_collection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,CollectionActivity.class));
+            }
+        });
+        slidingmenu_friends.setOnClickListener(this);
+        slidingmenu_friends.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,FriendsActivity.class));
+            }
+        });
+        slidingmenu_notice.setOnClickListener(this);
+        slidingmenu_notice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,NoticeActivity.class));
             }
         });
 

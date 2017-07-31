@@ -95,6 +95,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/slidingmenu_collection"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -126,6 +127,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/slidingmenu_friends"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -156,6 +158,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/slidingmenu_notice"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
