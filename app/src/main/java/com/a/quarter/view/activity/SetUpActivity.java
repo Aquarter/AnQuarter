@@ -6,25 +6,24 @@ import android.widget.TextView;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseActivity;
-import com.a.quarter.presenter.FriendsPresenter;
-import com.a.quarter.view.iview.IFriendsView;
+import com.a.quarter.presenter.SetUpPresenter;
+import com.a.quarter.view.iview.ISetupView;
 
 /**
  * @类作用:
  * @author: 王鹏智
- * @Date: 2017/7/31  19:08
+ * @Date: 2017/8/1  10:55
  * <p>
  * 思路：
- * 搜索好友
+ * 设置
  */
 
 
-public class FriendsActivity extends BaseActivity<FriendsPresenter> implements IFriendsView,View.OnClickListener {
+public class SetUpActivity extends BaseActivity<SetUpPresenter> implements ISetupView,View.OnClickListener {
 
     private LinearLayout toolbar_back;
     private TextView toolbar_title;
     private TextView toolbar_btn;
-
     @Override
     public void onsuccess(Object o) {
 
@@ -37,12 +36,12 @@ public class FriendsActivity extends BaseActivity<FriendsPresenter> implements I
 
     @Override
     protected void createPresenter() {
-        mPresenter = new FriendsPresenter();
+        mPresenter = new SetUpPresenter();
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_friends;
+        return R.layout.activity_setup;
     }
 
     @Override
@@ -55,17 +54,18 @@ public class FriendsActivity extends BaseActivity<FriendsPresenter> implements I
 
     @Override
     protected void initDatas() {
-        toolbar_title.setText("搜索好友");
+        toolbar_title.setText("设置");
         toolbar_btn.setVisibility(View.GONE);
     }
-    
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             //返回点击事件
             case R.id.toolbar_back:
-                    this.finish();
+                this.finish();
                 break;
         }
     }
+
 }

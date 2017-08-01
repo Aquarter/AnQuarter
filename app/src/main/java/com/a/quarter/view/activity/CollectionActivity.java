@@ -3,6 +3,7 @@ package com.a.quarter.view.activity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseActivity;
@@ -65,11 +66,13 @@ public class CollectionActivity extends BaseActivity<CollectionPresenter> implem
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            //返回键
             case R.id.toolbar_back:
                 this.finish();
                 break;
+            //删除TextView
             case R.id.toolbar_btn:
-                this.finish();
+                Toast.makeText(mContext, "啥也没有你想删除啥", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
