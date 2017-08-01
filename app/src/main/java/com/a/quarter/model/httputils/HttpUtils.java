@@ -3,7 +3,7 @@ package com.a.quarter.model.httputils;
 
 import com.a.quarter.api.Api;
 import com.a.quarter.api.RetrofitApi;
-import com.a.quarter.model.bean.MainBean;
+import com.a.quarter.model.bean.LoginDataBean;
 import com.a.quarter.model.bean.RegisteredDataBean;
 
 import io.reactivex.Observable;
@@ -18,18 +18,18 @@ import io.reactivex.schedulers.Schedulers;
 public class HttpUtils {
 
     //请求网络
-    public static void gettMainData(Observer observer){
+//    public static void gettMainData(Observer observer){
+//
+//        //创建Retrofit实例并初始化
+//        Api api = RetrofitApi.getServer();
+//        //通过retrofit生成系定义请求数据接口ILoginBiz的实例  返回ILoginBiz对象
+//        Observable<MainBean> observable = api.getData();
+//        observable.observeOn(AndroidSchedulers.mainThread())    //在主线程处理数据
+//                .subscribeOn(Schedulers.io())                   //在子线程请求数据
+//                .subscribe(observer);
+//    }
 
-        //创建Retrofit实例并初始化
-        Api api = RetrofitApi.getServer();
-        //通过retrofit生成系定义请求数据接口ILoginBiz的实例  返回ILoginBiz对象
-        Observable<MainBean> observable = api.getData();
-        observable.observeOn(AndroidSchedulers.mainThread())    //在主线程处理数据
-                .subscribeOn(Schedulers.io())                   //在子线程请求数据
-                .subscribe(observer);
-    }
-
-    //请求网络
+    //注册
     public static void getRegistData(String name,String pwd,String phone,String sex,Observer observer){
 
         //创建Retrofit实例并初始化
@@ -41,4 +41,15 @@ public class HttpUtils {
                 .subscribe(observer);
     }
 
+    //登陆
+    public static void getLoginData(String pwd,String phone,Observer observer){
+
+        //创建Retrofit实例并初始化
+        Api api = RetrofitApi.getServer();
+        //通过retrofit生成系定义请求数据接口ILoginBiz的实例  返回ILoginBiz对象
+        Observable<LoginDataBean> observable = api.postLoginData(phone,pwd);
+        observable.observeOn(AndroidSchedulers.mainThread())    //在主线程处理数据
+                .subscribeOn(Schedulers.io())                   //在子线程请求数据
+                .subscribe(observer);
+    }
 }

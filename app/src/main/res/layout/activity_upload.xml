@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -30,24 +33,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@mipmap/bar_upload">
-        <ImageView
-            android:id="@+id/upload_video"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/btn_upload_video"
-            android:background="@color/orange"
-            android:layout_centerInParent="true"
-            android:layout_above="@+id/upload_joke"
-            android:padding="20dp"
-            />
-        <ImageView
-            android:id="@+id/upload_joke"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/btn_upload_joke"
-            android:background="@color/orange"
-            android:layout_centerInParent="true"
-            android:padding="20dp"/>
 
+        <com.facebook.drawee.view.SimpleDraweeView
+
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/upload_video"
+            android:layout_above="@+id/upload_joke"
+            android:layout_centerInParent="true"
+            android:padding="20dp"
+            fresco:roundAsCircle="true"
+
+            ></com.facebook.drawee.view.SimpleDraweeView>
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_marginTop="50dp"
+            fresco:roundAsCircle="true"
+            android:id="@+id/upload_joke"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:padding="20dp"
+            ></com.facebook.drawee.view.SimpleDraweeView>
     </RelativeLayout>
 </LinearLayout>

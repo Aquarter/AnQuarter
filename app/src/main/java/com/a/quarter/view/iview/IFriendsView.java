@@ -1,6 +1,6 @@
 package com.a.quarter.view.iview;
 
-import com.a.quarter.base.BaseView;
+        import com.a.quarter.base.BaseView;
 
 /**
  * @类作用:
@@ -13,4 +13,7 @@ import com.a.quarter.base.BaseView;
 
 
 public interface IFriendsView extends BaseView {
+
+
+
 }

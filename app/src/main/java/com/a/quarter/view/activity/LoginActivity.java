@@ -14,6 +14,8 @@ import com.a.quarter.view.iview.ILoginView;
 
 /**
  * Created by qizepu on 2017/7/25.
+ *
+ * 登陆界面
  */
 
 public class LoginActivity extends BaseActivity<LoginPresenter> implements ILoginView, View.OnClickListener {
@@ -66,7 +68,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
         switch (v.getId()){
             case R.id.activity_login_back:
                 finish();
-                overridePendingTransition(R.anim.right_in,R.anim.right_out);
+//                overridePendingTransition(R.anim.right_in,R.anim.right_out);
                 break;
             case R.id.activity_login_else_login:
                 startActivity(new Intent(mContext,LoginNativeActivity.class));

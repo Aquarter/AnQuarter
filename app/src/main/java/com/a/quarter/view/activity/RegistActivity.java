@@ -17,6 +17,8 @@ import com.a.quarter.view.iview.IRegistView;
 
 /**
  * Created by qizepu on 2017/7/27.
+ *
+ * 注册界面
  */
 
 public class RegistActivity extends BaseActivity<RegistPresenter> implements IRegistView, View.OnClickListener {
@@ -27,6 +29,7 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements IRe
     private EditText name;
     private EditText phone;
     private EditText pwd;
+    private EditText pwd2;
     private RadioButton man;
     private RadioButton woman;
     private RadioGroup sex;
@@ -36,6 +39,9 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements IRe
     public void onsuccess(Object o) {
         RegisteredDataBean registeredDataBean = (RegisteredDataBean) o;
         //TODO
+        if (registeredDataBean.getCode().equals("200")){
+            TUtil.showShort(mContext,"注册成功");
+        }
     }
 
     @Override
@@ -61,7 +67,9 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements IRe
         name = (EditText) findViewById(R.id.activity_regist_name);         //账号
         phone = (EditText) findViewById(R.id.activity_regist_phone);       //电话
         pwd = (EditText) findViewById(R.id.activity_regist_pwd);           //密码
+        pwd2 = (EditText) findViewById(R.id.activity_regist_pwd2);         //确认密码
         man = (RadioButton) findViewById(R.id.activity_regist_man);        //性别男
+        man.setChecked(true);
         woman = (RadioButton) findViewById(R.id.activity_regist_woman);    //性别女
         sex = (RadioGroup) findViewById(R.id.activity_regist_radiogroup);  //性别
         regist = (Button) findViewById(R.id.activity_regist_regist);
@@ -69,7 +77,6 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements IRe
         //不要忘记注册点击事件
         back.setOnClickListener(this);
         regist.setOnClickListener(this);
-
     }
 
     @Override
@@ -87,11 +94,14 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements IRe
             case R.id.activity_regist_regist:   //注册
                 String username = name.getText().toString();
                 String password = pwd.getText().toString();
+                String password2 = pwd2.getText().toString();
                 String mPhone = phone.getText().toString();
                 if (username == null || username.equals("")){
                     TUtil.showShort(mContext,"用户名不能为空");
                 }else if (password == null || password.equals("")){
                     TUtil.showShort(mContext,"密码不能为空");
+                }else if (!password.equals(password2)){
+                    TUtil.showShort(mContext,"两次密码输入不一致");
                 }else if (mPhone == null || mPhone.equals("")){
                     TUtil.showShort(mContext,"电话不能为空");
                 }else {
