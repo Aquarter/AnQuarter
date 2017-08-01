@@ -3,13 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <include
         android:id="@+id/video_details_title"
-        layout="@layout/inculde_details_title"/>
-    <TextView
-        android:id="@+id/video_details_text"
+        layout="@layout/inculde_details_title" />
+
+
+    <media.IjkVideoView
+        android:id="@+id/MyIjkPlayer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="/666"
-        android:gravity="center"/>
+        android:layout_height="200dp"></media.IjkVideoView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="zzzzzzzzzz"/>
+
 </LinearLayout>
