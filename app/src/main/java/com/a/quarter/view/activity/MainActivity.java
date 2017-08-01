@@ -148,6 +148,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         header_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menu.toggle(false);
                 startActivity(new Intent(MainActivity.this,LoginActivity.class));
             }
         });

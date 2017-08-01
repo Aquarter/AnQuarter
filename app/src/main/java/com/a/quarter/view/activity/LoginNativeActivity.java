@@ -9,7 +9,9 @@ import android.widget.TextView;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseActivity;
+import com.a.quarter.model.bean.LoginDataBean;
 import com.a.quarter.presenter.LoginNativePresenter;
+import com.a.quarter.utils.SPUtil;
 import com.a.quarter.utils.TUtil;
 import com.a.quarter.view.iview.ILoginNativeView;
 
@@ -32,7 +34,17 @@ public class LoginNativeActivity extends BaseActivity<LoginNativePresenter> impl
 
     @Override
     public void onsuccess(Object o) {
+        LoginDataBean loginDataBean = (LoginDataBean) o;
+        if (loginDataBean.getCode().equals("200")){
+            TUtil.showShort(mContext,"登陆成功");
+            SPUtil.put(mContext,"userId",loginDataBean.getUser().getUserId());
+            SPUtil.put(mContext,"userName",loginDataBean.getUser().getUserName());
+            SPUtil.put(mContext,"userPassword",loginDataBean.getUser().getUserPassword());
+            SPUtil.put(mContext,"userPhone",loginDataBean.getUser().getUserPhone());
+            SPUtil.put(mContext,"userSex",loginDataBean.getUser().getUserSex());
 
+            startActivity(new Intent(mContext,MainActivity.class));
+        }
     }
 
     @Override
@@ -98,7 +110,15 @@ public class LoginNativeActivity extends BaseActivity<LoginNativePresenter> impl
                 TUtil.showShort(mContext,"正在研发中");
                 break;
             case R.id.activity_login_native_login:
-                TUtil.showShort(mContext,"正在研发中");
+                String phone = name.getText().toString();
+                String password = pwd.getText().toString();
+                if (phone == null || phone.equals("")){
+                    TUtil.showShort(mContext,"用户名不能为空");
+                }else if (password == null || password.equals("")){
+                    TUtil.showShort(mContext,"密码不能为空");
+                }else {
+                    mPresenter.getLoginData(mContext,password,phone);
+                }
                 break;
         }
     }
