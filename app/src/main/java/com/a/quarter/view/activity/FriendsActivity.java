@@ -14,6 +14,7 @@ import com.a.quarter.view.iview.IFriendsView;
  * @Date: 2017/7/31  19:08
  * <p>
  * 思路：
+ * 搜索好友
  */
 
 
@@ -43,7 +44,7 @@ public class FriendsActivity extends BaseActivity<FriendsPresenter> implements I
 
     @Override
     protected void initView() {
-        toolbar_back = (LinearLayout) findViewById(R.id.toolbar_back);
+        toolbar_back = (LinearLayout) findViewById(R.id.toolbar_back);//返回按钮
         toolbar_back.setOnClickListener(this);
     }
 

@@ -15,6 +15,7 @@ import com.a.quarter.view.iview.INoticeView;
  * @Date: 2017/7/31  20:11
  * <p>
  * 思路：
+ * 消息通知
  */
 
 
@@ -45,8 +46,8 @@ public class NoticeActivity extends BaseActivity<NoticePresenter> implements INo
 
     @Override
     protected void initView() {
-        toolbar_title = (TextView) findViewById(R.id.toolbar_title);
-        toolbar_back = (LinearLayout) findViewById(R.id.toolbar_back);
+        toolbar_title = (TextView) findViewById(R.id.toolbar_title);//标题头
+        toolbar_back = (LinearLayout) findViewById(R.id.toolbar_back);//返回按钮
 
 
         toolbar_back.setOnClickListener(this);

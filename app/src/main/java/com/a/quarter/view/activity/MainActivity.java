@@ -137,7 +137,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         slidingmenu_notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,NoticeActivity.class));
+                startActivity(new Intent(MainActivity.this,NoticeActivity .class));
             }
         });
 

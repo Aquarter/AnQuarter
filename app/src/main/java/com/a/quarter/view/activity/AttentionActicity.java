@@ -14,6 +14,7 @@ import com.a.quarter.view.iview.IAttentionView;
  * @Date: 2017/7/31  16:23
  * <p>
  * 思路：
+ * 我的关注
  */
 
 
@@ -43,7 +44,7 @@ public class AttentionActicity extends BaseActivity<AttentionPresenter> implemen
 
     @Override
     protected void initView() {
-        attention_back = (LinearLayout) findViewById(R.id.toolbar_back);
+        attention_back = (LinearLayout) findViewById(R.id.toolbar_back);//返回按钮
         attention_back.setOnClickListener(this);
 
     }

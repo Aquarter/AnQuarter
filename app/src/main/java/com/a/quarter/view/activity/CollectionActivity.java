@@ -15,6 +15,7 @@ import com.a.quarter.view.iview.ICollectionView;
  * @Date: 2017/7/31  18:31
  * <p>
  * 思路：
+ * 我的收藏
  */
 
 
@@ -45,8 +46,8 @@ public class CollectionActivity extends BaseActivity<CollectionPresenter> implem
 
     @Override
     protected void initView() {
-        toolbar_title = (TextView) findViewById(R.id.toolbar_title);
-        toolbar_back = (LinearLayout) findViewById(R.id.toolbar_back);
+        toolbar_title = (TextView) findViewById(R.id.toolbar_title);//标题头
+        toolbar_back = (LinearLayout) findViewById(R.id.toolbar_back);//返回按钮
 
 
         toolbar_back.setOnClickListener(this);
