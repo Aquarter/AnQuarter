@@ -44,6 +44,8 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
     private LinearLayout slidingmenu_notice;
     private LinearLayout slidingmenu_friends;
     private LinearLayout slidingmenu_collection;
+    private LinearLayout slidingmenu_works;
+    private LinearLayout slidingmenu_setup;
 
     @Override
     public void onsuccess(Object o) {
@@ -106,12 +108,14 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
         //为侧滑菜单设置布局
         menu.setMenu(R.layout.slidingmenu);
 
+        slidingmenu_works = (LinearLayout) findViewById(R.id.slidingmenu_works);//我的作品
+        slidingmenu_setup = (LinearLayout) findViewById(R.id.slidingmenu_setup);//  设  置
         slidingmenu_notice = (LinearLayout) findViewById(R.id.slidingmenu_notice);//消息通知
         slidingmenu_friends = (LinearLayout) findViewById(R.id.slidingmenu_friends);//我得好友
         slidingmenu_collection = (LinearLayout) findViewById(R.id.slidingmenu_collection);//我得收藏
         slidingmenu_attention = (LinearLayout) findViewById(R.id.slidingmenu_attention);//我的关注
 
-
+        //我的关注
         slidingmenu_attention.setOnClickListener(this);
         slidingmenu_attention.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +123,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
                 startActivity(new Intent(MainActivity.this,AttentionActicity.class));
             }
         });
+        //我的收藏
         slidingmenu_collection.setOnClickListener(this);
         slidingmenu_collection.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +131,7 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
                 startActivity(new Intent(MainActivity.this,CollectionActivity.class));
             }
         });
+        //搜索好友
         slidingmenu_friends.setOnClickListener(this);
         slidingmenu_friends.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,11 +139,28 @@ public class MainActivity extends BaseActivity<MainPresenter>  implements Bottom
                 startActivity(new Intent(MainActivity.this,FriendsActivity.class));
             }
         });
+        //消息通知
         slidingmenu_notice.setOnClickListener(this);
         slidingmenu_notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,NoticeActivity.class));
+                startActivity(new Intent(MainActivity.this,NoticeActivity .class));
+            }
+        });
+        //我的作品
+        slidingmenu_works.setOnClickListener(this);
+        slidingmenu_works.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,WorksActivity.class));
+            }
+        });
+        //设置
+        slidingmenu_setup.setOnClickListener(this);
+        slidingmenu_setup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,SetUpActivity.class));
             }
         });
 
