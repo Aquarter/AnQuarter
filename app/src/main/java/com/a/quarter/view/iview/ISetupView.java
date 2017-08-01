@@ -5,12 +5,12 @@ import com.a.quarter.base.BaseView;
 /**
  * @类作用:
  * @author: 王鹏智
- * @Date: 2017/7/31  16:25
+ * @Date: 2017/8/1  10:45
  * <p>
  * 思路：
- * 我的关注
+ * 设置接口
  */
 
 
-public interface IAttentionView extends BaseView {
+public interface ISetupView extends BaseView {
 }

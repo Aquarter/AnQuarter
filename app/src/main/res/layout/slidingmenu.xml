@@ -221,6 +221,7 @@
     android:orientation="horizontal"
     >
     <LinearLayout
+        android:id="@+id/slidingmenu_works"
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -243,6 +244,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/slidingmenu_setup"
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

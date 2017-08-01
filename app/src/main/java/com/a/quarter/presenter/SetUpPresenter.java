@@ -5,12 +5,12 @@ import com.a.quarter.base.BasePresenter;
 /**
  * @类作用:
  * @author: 王鹏智
- * @Date: 2017/7/31  18:40
+ * @Date: 2017/8/1  10:51
  * <p>
  * 思路：
- * 搜索好友Presenter
+ * 设置的Presenter
  */
 
 
-public class FriendsPresenter extends BasePresenter {
+public class SetUpPresenter extends BasePresenter {
 }

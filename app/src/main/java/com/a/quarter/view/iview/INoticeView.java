@@ -8,6 +8,7 @@ import com.a.quarter.base.BaseView;
  * @Date: 2017/7/31  18:37
  * <p>
  * 思路：
+ * 消息通知接口
  */
 
 

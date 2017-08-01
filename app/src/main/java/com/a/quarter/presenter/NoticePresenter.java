@@ -8,6 +8,7 @@ import com.a.quarter.base.BasePresenter;
  * @Date: 2017/7/31  18:41
  * <p>
  * 思路：
+ * 消息通知的Presenter
  */
 
 
