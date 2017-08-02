@@ -12,18 +12,25 @@ import com.a.quarter.base.BaseActivity;
 import com.a.quarter.presenter.video.VideoDetailsPresenter;
 import com.a.quarter.view.iview.video.IVideoDetailsView;
 
+import media.AndroidMediaController;
+import media.IjkVideoView;
+import tv.danmaku.ijk.media.player.IjkMediaPlayer;
+
 /**
  * @类作用:
  * @author: 王鹏智
  * @Date: 2017/7/28  20:10
  * <p>
  * 思路：
+ * 视频详情页
  */
 
 
 public class VideoDetailsActivity extends BaseActivity<VideoDetailsPresenter> implements IVideoDetailsView,View.OnClickListener {
     private ImageView inculdeTitleBack;
-    private TextView videoDetailsText;
+//    private TextView videoDetailsText;
+    private IjkVideoView mVideoView;
+    private AndroidMediaController mMediaController;
 
     @Override
     public void onsuccess(Object o) {
@@ -47,10 +54,24 @@ public class VideoDetailsActivity extends BaseActivity<VideoDetailsPresenter> im
 
     @Override
     protected void initView() {
+
+        IjkMediaPlayer.loadLibrariesOnce(null);
+        IjkMediaPlayer.native_profileBegin("libijkplayer.so");
+        mMediaController = new AndroidMediaController(this, false);
+        mVideoView = (IjkVideoView) findViewById(R.id.MyIjkPlayer);
+        mVideoView.setMediaController(mMediaController);
+
+        //播放本地
+//        mVideoView.setVideoURI("");
+        //播放网络
+        mVideoView.setVideoPath("http://baobab.kaiyanapp.com/api/v1/playUrl?vid=22131&editionType=default&source=ucloud");
+        mVideoView.start();
+
+
         inculdeTitleBack = (ImageView) findViewById(R.id.inculde_title_back);
         inculdeTitleBack.setOnClickListener(this);
-        videoDetailsText = (TextView) findViewById(R.id.video_details_text);
-        videoDetailsText.setOnClickListener(this);
+//        videoDetailsText = (TextView) findViewById(R.id.video_details_text);
+//        videoDetailsText.setOnClickListener(this);
     }
 
     @Override
@@ -63,7 +84,7 @@ public class VideoDetailsActivity extends BaseActivity<VideoDetailsPresenter> im
         int text = this.getIntent().getIntExtra("text",0);
         initView();
         initDatas();
-        videoDetailsText.setText(text + "");
+//        videoDetailsText.setText(text + "");
 
     }
 

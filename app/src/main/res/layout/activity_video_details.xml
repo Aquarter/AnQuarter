@@ -3,13 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <include
         android:id="@+id/video_details_title"
-        layout="@layout/inculde_details_title"/>
-    <TextView
-        android:id="@+id/video_details_text"
+        layout="@layout/inculde_details_title" />
+
+
+    <media.IjkVideoView
+        android:id="@+id/MyIjkPlayer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="/666"
-        android:gravity="center"/>
+        android:layout_height="200dp"></media.IjkVideoView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="我叫视频题目，你能吧我咋地"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="我是播放次数，我说我会变成上万次你敢信？" />
+    </LinearLayout>
+
 </LinearLayout>
