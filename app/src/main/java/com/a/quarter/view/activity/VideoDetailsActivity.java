@@ -31,6 +31,7 @@ public class VideoDetailsActivity extends BaseActivity<VideoDetailsPresenter> im
 //    private TextView videoDetailsText;
     private IjkVideoView mVideoView;
     private AndroidMediaController mMediaController;
+    private boolean mBackPressed;
 
     @Override
     public void onsuccess(Object o) {
@@ -70,8 +71,6 @@ public class VideoDetailsActivity extends BaseActivity<VideoDetailsPresenter> im
 
         inculdeTitleBack = (ImageView) findViewById(R.id.inculde_title_back);
         inculdeTitleBack.setOnClickListener(this);
-//        videoDetailsText = (TextView) findViewById(R.id.video_details_text);
-//        videoDetailsText.setOnClickListener(this);
     }
 
     @Override
@@ -81,10 +80,9 @@ public class VideoDetailsActivity extends BaseActivity<VideoDetailsPresenter> im
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int text = this.getIntent().getIntExtra("text",0);
+//        int text = this.getIntent().getIntExtra("text",0);
         initView();
         initDatas();
-//        videoDetailsText.setText(text + "");
 
     }
 
@@ -97,5 +95,27 @@ public class VideoDetailsActivity extends BaseActivity<VideoDetailsPresenter> im
                 break;
         }
 
+    }
+
+
+
+    //onBackPressed() 和 onStop()都是释放Ijkplayer资源
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        mBackPressed=true;
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //释放Ijkplayer资源
+        if (mBackPressed || !mVideoView.isBackgroundPlayEnabled()) {
+            mVideoView.stopPlayback();
+            mVideoView.release(true);
+            mVideoView.stopBackgroundPlay();
+        } else {
+            mVideoView.enterBackground();
+        }
+        IjkMediaPlayer.native_profileEnd();
     }
 }

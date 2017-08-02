@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--   填充背景颜色-->
+    <solid
+        android:color="@mipmap/raw_no_comment"></solid>
+
+    <!-- 让矩形的四个角变的由弧度 -->
+
+    <corners android:topLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        android:bottomRightRadius="20dp"
+        android:bottomLeftRadius="20dp"/>
+
+</shape>
