@@ -34,4 +34,42 @@
             android:text="我是播放次数，我说我会变成上万次你敢信？" />
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/gray">
+
+        <ImageView
+            android:id="@+id/video_details_no_comment"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/raw_no_comment"
+            android:background="@drawable/video_details_no_comment_shape"
+            android:layout_centerInParent="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="拿起手机速来抢个沙发吧！"
+            android:layout_below="@+id/video_details_no_comment"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/raw_edit"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="写评论..."
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
 </LinearLayout>
