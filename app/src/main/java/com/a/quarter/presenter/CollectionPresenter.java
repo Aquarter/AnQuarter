@@ -13,4 +13,6 @@ import com.a.quarter.base.BasePresenter;
 
 
 public class CollectionPresenter extends BasePresenter {
+
+
 }

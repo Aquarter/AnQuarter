@@ -2,6 +2,7 @@ package com.a.quarter.model.httputils;
 
 
 import com.a.quarter.api.Api;
+import com.a.quarter.api.ObserverApi;
 import com.a.quarter.api.RetrofitApi;
 import com.a.quarter.model.bean.LoginDataBean;
 import com.a.quarter.model.bean.RegisteredDataBean;
@@ -52,4 +53,15 @@ public class HttpUtils {
                 .subscribeOn(Schedulers.io())                   //在子线程请求数据
                 .subscribe(observer);
     }
+
+
+public static<T> void getData(Observable<T>  observable,ObserverApi<T> observer){
+
+
+    observable.observeOn(AndroidSchedulers.mainThread())    //在主线程处理数据
+            .subscribeOn(Schedulers.io())                   //在子线程请求数据
+            .subscribe(observer);
+}
+
+
 }
