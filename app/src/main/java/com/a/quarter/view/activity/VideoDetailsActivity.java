@@ -70,8 +70,6 @@ public class VideoDetailsActivity extends BaseActivity<VideoDetailsPresenter> im
 
         inculdeTitleBack = (ImageView) findViewById(R.id.inculde_title_back);
         inculdeTitleBack.setOnClickListener(this);
-//        videoDetailsText = (TextView) findViewById(R.id.video_details_text);
-//        videoDetailsText.setOnClickListener(this);
     }
 
     @Override
@@ -81,10 +79,9 @@ public class VideoDetailsActivity extends BaseActivity<VideoDetailsPresenter> im
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int text = this.getIntent().getIntExtra("text",0);
+//        int text = this.getIntent().getIntExtra("text",0);
         initView();
         initDatas();
-//        videoDetailsText.setText(text + "");
 
     }
 
