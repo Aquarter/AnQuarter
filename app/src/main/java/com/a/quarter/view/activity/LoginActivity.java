@@ -80,7 +80,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
                 break;
             case R.id.activity_login_wechat:
 //                TUtil.showShort(mContext,"正在研发中");
-                ShareSdkUtils.showShare(mContext);
+                ShareSdkUtils.showShare(mContext,"标题","http://sharesdk.cn","分享文本","http://sharesdk.cn","http://sharesdk.cn");
                 break;
 
         }

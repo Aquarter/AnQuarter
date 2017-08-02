@@ -29,7 +29,6 @@ public interface Api {
     Observable<LoginDataBean> postLoginData(@Field("userPhone") String userPhone,
                                             @Field("userPassword") String userPassword);
 
-
     //注册接口
     @FormUrlEncoded
     @POST(Content.REGIST)

@@ -2,20 +2,13 @@ package com.a.quarter.view.fragment;
 
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
@@ -23,8 +16,6 @@ import com.a.quarter.presenter.recommend.RecommendFragmentPresenter;
 import com.a.quarter.view.adapter.TableAdapter;
 import com.a.quarter.view.fragment.recommendfragment.FollowFragment;
 import com.a.quarter.view.fragment.recommendfragment.HotFragment;
-import com.a.quarter.view.fragment.videofragment.VideoNearbyFragment;
-import com.a.quarter.view.fragment.videofragment.VideoPopularFragment;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -33,7 +24,7 @@ import java.util.List;
 /**
  * desc：
  * Created by wd on 2017/7/20.
- * thinking：
+ *  推荐界面
  */
 
 public class RecommendFragment extends BaseFragment {
