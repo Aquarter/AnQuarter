@@ -112,7 +112,6 @@ public class RegistActivity extends BaseActivity<RegistPresenter> implements IRe
                     }
                 }
 
-
                 break;
             default:
                 TUtil.showShort(mContext,"正在研发中");

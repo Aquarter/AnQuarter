@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.a.quarter.R;
 import com.a.quarter.base.BaseActivity;
 import com.a.quarter.presenter.LoginPresenter;
-import com.a.quarter.utils.TUtil;
+import com.a.quarter.utils.ShareSdkUtils;
 import com.a.quarter.view.iview.ILoginView;
 
 /**
@@ -74,12 +74,16 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements ILogi
                 startActivity(new Intent(mContext,LoginNativeActivity.class));
                 break;
             case R.id.activity_login_qq:
-                TUtil.showShort(mContext,"正在研发中");
+//                TUtil.showShort(mContext,"正在研发中");
+
+                ShareSdkUtils.QLogin(mContext);
                 break;
             case R.id.activity_login_wechat:
-                TUtil.showShort(mContext,"正在研发中");
+//                TUtil.showShort(mContext,"正在研发中");
+                ShareSdkUtils.showShare(mContext);
                 break;
 
         }
     }
+
 }

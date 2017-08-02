@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.app.Application;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.mob.MobSDK;
 
 import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 
 /**
@@ -30,9 +30,7 @@ public class MyApplication extends Application {
         //初始化xutils
         x.Ext.init(this);
         x.Ext.setDebug(true);
-
-
-
+        MobSDK.init(this,"MobAppkey","MobAppsecret");
     }
 
     private void init() {

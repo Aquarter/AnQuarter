@@ -54,17 +54,16 @@ dependencies {
     //魅族Banner
     compile 'com.github.pinguo-zhouwei:MZBannerView:v1.1.0'
     compile 'org.xutils:xutils:3.5.0'
-
-
-//    //    # required, enough for most devices. 必须需要的依赖包
-//    compile 'tv.danmaku.ijk.media:ijkplayer-java:0.6.1'
-//    compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.1'
-//
-////    # Other ABIs: optional      满足CPU为X86和Armv5的
-//    compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.6.1'
-//    compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.5.1'
-//
-////    # ExoPlayer as IMediaPlayer: optional, experimental   支持多类型的播放种类
-//    compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.6.1'
-//    compile(name: 'ijkplayer-java-release', ext: 'aar')
+    //    //    # required, enough for most devices. 必须需要的依赖包
+    //    compile 'tv.danmaku.ijk.media:ijkplayer-java:0.6.1'
+    //    compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.1'
+    //
+    ////    # Other ABIs: optional      满足CPU为X86和Armv5的
+    //    compile 'tv.danmaku.ijk.media:ijkplayer-armv5:0.6.1'
+    //    compile 'tv.danmaku.ijk.media:ijkplayer-x86:0.5.1'
+    //
+    ////    # ExoPlayer as IMediaPlayer: optional, experimental   支持多类型的播放种类
+    //    compile 'tv.danmaku.ijk.media:ijkplayer-exo:0.6.1'
+    //    compile(name: 'ijkplayer-java-release', ext: 'aar')
+    compile files('libs/MobCommons-2017.0608.1618.jar')
 }

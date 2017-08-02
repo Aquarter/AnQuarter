@@ -3,6 +3,7 @@ package com.a.quarter.presenter;
 import android.content.Context;
 
 import com.a.quarter.api.ObserverApi;
+import com.a.quarter.api.RetrofitApi;
 import com.a.quarter.base.BasePresenter;
 import com.a.quarter.model.bean.LoginDataBean;
 import com.a.quarter.model.httputils.HttpUtils;
@@ -17,7 +18,7 @@ public class LoginNativePresenter extends BasePresenter {
 
     //注册
     public void getLoginData(Context context,String pwd, String phone){
-        HttpUtils.getLoginData(pwd,phone,new ObserverApi<LoginDataBean>(context) {
+        HttpUtils.getData(RetrofitApi.getServer().postLoginData(phone,pwd),new ObserverApi<LoginDataBean>(context) {
             @Override
             public void onSuccess(LoginDataBean o) {
                 getView().onsuccess(o);
@@ -25,4 +26,14 @@ public class LoginNativePresenter extends BasePresenter {
         });
     }
 
+
+//    //注册
+//    public void getLoginData(Context context,String pwd, String phone){
+//        HttpUtils.getLoginData(pwd,phone,new ObserverApi<LoginDataBean>(context) {
+//            @Override
+//            public void onSuccess(LoginDataBean o) {
+//                getView().onsuccess(o);
+//            }
+//        });
+//    }
 }
