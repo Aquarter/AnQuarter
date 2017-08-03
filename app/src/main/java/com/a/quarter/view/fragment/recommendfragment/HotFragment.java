@@ -1,13 +1,19 @@
 package com.a.quarter.view.fragment.recommendfragment;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.a.quarter.R;
 import com.a.quarter.base.BaseFragment;
 import com.a.quarter.presenter.recommend.RecommendHotPresenter;
+import com.a.quarter.view.adapter.FHotRecyclerViewAdapter;
 import com.a.quarter.view.iview.recommend.IRecommendHotFragmentView;
 import com.zhouwei.mzbanner.MZBannerView;
 import com.zhouwei.mzbanner.holder.MZHolderCreator;
@@ -16,6 +22,7 @@ import com.zhouwei.mzbanner.holder.MZViewHolder;
 import org.xutils.x;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by qizepu on 2017/7/26.
@@ -35,6 +42,12 @@ public class HotFragment extends BaseFragment<RecommendHotPresenter> implements 
 
 
     private MZBannerView bannerView;
+    private SwipeRefreshLayout swip;
+    private RecyclerView recycle;
+    private ProgressBar progress;
+    private LinearLayoutManager linearLayoutManager;
+    private FHotRecyclerViewAdapter adapter;
+    private List<String> list;
 
     @Override
     public void onsuccess(Object o) {
@@ -59,23 +72,43 @@ public class HotFragment extends BaseFragment<RecommendHotPresenter> implements 
     @Override
     protected void initView() {
         bannerView = (MZBannerView) getView().findViewById(R.id.banner);
+        swip = (SwipeRefreshLayout) getView().findViewById(R.id.fragment_reconnemd_swip);
+        recycle = (RecyclerView) getView().findViewById(R.id.fragment_recommend_recycle);
+        progress = (ProgressBar) getView().findViewById(R.id.fragment_recommend_progress);
+
+
+        //listview
+        linearLayoutManager = new LinearLayoutManager(mContext);
+
+        recycle.setLayoutManager(linearLayoutManager);
+        recycle.setItemAnimator(new DefaultItemAnimator());
+//        recycle.addItemDecoration(new DividerItemDecoration(this,
+//                DividerItemDecoration.VERTICAL_LIST));
+        recycle.setItemAnimator(new DefaultItemAnimator());
+        adapter = new FHotRecyclerViewAdapter(mContext);
+        recycle.setAdapter(adapter);
+
         setData();
     }
 
+    //设置数据
     private void setData(){
-        setBannerData();
+        list = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            list.add("这是一条测试数据");
+        }
+        adapter.addData(list);
+        adapter.notifyDataSetChanged();
 
+        setBannerData();
     }
 
     private void setBannerData() {
 
-
         //加载 网络上的图片
-
            urlList.clear();
                 for(int i=0;i<RES.length;i++){
                 urlList.add(RES[i]);
-
 
         }
         // 设置数据
