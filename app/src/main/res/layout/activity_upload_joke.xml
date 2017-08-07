@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    //标题栏
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:padding="10dp"
         android:background="@color/blue">
         <TextView
-            android:id="@+id/upload_back"
+            android:id="@+id/upload_joke_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="取消"
@@ -17,6 +19,7 @@
             android:textColor="@color/white"
             android:layout_gravity="center"/>
         <TextView
+            android:id="@+id/upload_joke_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -26,6 +29,7 @@
             android:layout_gravity="center"
             android:gravity="center"/>
         <TextView
+            android:id="@+id/upload_joke_published"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="发表"
@@ -34,4 +38,5 @@
             android:layout_gravity="center"
             android:gravity="center"/>
     </LinearLayout>
+
 </LinearLayout>
