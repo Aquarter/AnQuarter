@@ -59,10 +59,10 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/fragment_hot_image"
+        android:layout_width="370dp"
+        android:layout_height="200dp"
         fresco:placeholderImage="@mipmap/raw_1499917357"
-        fresco:retryImageScaleType="centerCrop"
-        android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        fresco:retryImageScaleType="centerCrop" />
 
     <ListView
         android:scrollbars="none"
